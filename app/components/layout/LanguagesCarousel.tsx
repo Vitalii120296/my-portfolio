@@ -12,7 +12,7 @@ export const LanguagesCarousel = () => {
             <img
               src={href}
               alt={name}
-              className="w-auto h-12 opacity-80 hover:opacity-100 drop-shadow-lg"
+              className="w-auto h-10 sm:h-12 opacity-80 hover:opacity-100 drop-shadow-lg"
               loading="lazy"
             />
           </div>
@@ -27,15 +27,15 @@ export const LanguagesCarousel = () => {
             <img
               src={href}
               alt={name}
-              className="w-auto h-12 opacity-80 hover:opacity-100 drop-shadow-lg"
+              className="w-auto h-10 sm:h-12 opacity-80 hover:opacity-100 drop-shadow-lg"
               loading="lazy"
             />
           </div>
         ))}
       </div>
 
-      <div className="absolute inset-y-0 left-0 flex w-1/4 pointer-events-none bg-linear-to-r from-bgDark2"></div>
-      <div className="absolute inset-y-0 right-0 flex w-1/4 pointer-events-none bg-linear-to-l from-bgDark2"></div>
+      <div className="absolute inset-y-0 left-0 flex w-1/4 pointer-events-none bg-linear-to-r from-bgc-dark-2"></div>
+      <div className="absolute inset-y-0 right-0 flex w-1/4 pointer-events-none bg-linear-to-l from-bgc-dark-2"></div>
     </div>
   );
 };

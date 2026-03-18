@@ -6,47 +6,48 @@
 @import 'tw-animate-css';
 @import '@fontsource-variable/geist';
 /*             ---break---          */
-@custom-variant dark (&:is(.dark *));
-
-@theme {
-  /* Colors */
-  --color-primary: var(--primary);
-  --color-red: rgb(255, 0, 0);
-  --color-bgGray: rgb(54, 57, 62);
-  --color-bgDark: rgb(45, 46, 50);
-  --color-bgDark2: rgb(37, 38, 42);
-}
 
 :root {
   font-size: 16px;
-  --background: rgb(54, 57, 62);
-  --bgc-dark: rgb(45, 46, 50);
-  --bgc-dark-2: rgb(37, 38, 42);
-  --red: rgb(255, 0, 0);
-  --background: rgb(45, 46, 50);
-  --foreground: rgb(255, 255, 255);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
+  --bgc-gray: rgb(54, 57, 62); /*  + */
+  --bgc-dark-2: rgb(37, 38, 42); /*  + */
+
+  --background: rgb(45, 46, 50); /*  + */
+  --foreground: rgb(255, 255, 255); /*  + */
+
+  --card: rgb(45, 46, 50); /*  + */
+  --card-foreground: rgb(255, 255, 255); /*  + */
+
+  --popover: rgb(45, 46, 50); /*  + */
+  --popover-foreground: rgb(255, 255, 255); /*  + */
+
   --primary: oklch(76.741% 0.02667 17.569);
   --primary-foreground: oklch(0.985 0 0);
+
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
+
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
-  --accent: rgb(32, 201, 151);
-  --accent-foreground: oklch(0.205 0 0);
+
+  --accent: rgb(32, 201, 151); /*  + */
+  --accent-foreground: rgb(45, 46, 50); /*  + */
+
+  --red: rgb(255, 0, 0); /*  + */
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
+
+  --border: rgb(74, 78, 84);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
+
   --chart-1: oklch(0.809 0.105 251.813);
   --chart-2: oklch(0.623 0.214 259.815);
   --chart-3: oklch(0.546 0.245 262.881);
   --chart-4: oklch(0.488 0.243 264.376);
   --chart-5: oklch(0.424 0.199 265.638);
+
   --radius: 0.625rem;
+
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -58,108 +59,12 @@
 }
 
 @theme {
-  /* Colors         
-  --color-primary: var(--primary);
+  /*        Colors        */
+
   --color-red: var(--red);
-  --color-bgGray: var(--background);
-  --color-bgDark: var(--bgc-dark);
-  --color-bgDark2: var(--bgc-dark-2); */
+  --color-bgc-gray: var(--bgc-gray);
+  --color-bgc-dark-2: var(--bgc-dark-2);
 
-  /*             Fonts          */
-  --font-raleway: 'Raleway', ui-sans-serif, system-ui, sans-serif;
-  --font-geist: 'Geist', ui-sans-serif, system-ui, sans-serif;
-
-  /*             Screen sizes          */
-  --breakpoint-*: initial;
-
-  --breakpoint-sm: 480px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 1200px;
-  --breakpoint-xl: 1440px;
-
-  --width-phone: 22.5rem; /* 360px */
-  --width-tablet: 42rem; /* 672px */
-  --width-desktop: 80rem; /* 1280px */
-  --width-wide: 90rem; /* 1440px */
-
-  --max-width-phone: 22.5rem; /* 360px */
-  --max-width-tablet: 42rem; /* 672px */
-  --max-width-desktop: 80rem; /* 1280px */
-  --max-width-wide: 90rem; /* 1440px */
-}
-
-@layer utilities {
-  .title-underline {
-    display: inline-flex;
-    position: relative;
-    justify-content: center;
-
-    &::after {
-      position: absolute;
-      content: '';
-      bottom: -4px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 70px;
-      height: 2px;
-      background-color: var(--primary);
-    }
-  }
-}
-
-html,
-body {
-  @apply flex flex-col bg-background font-raleway selection:bg-accent min-w-[320px] scroll-smooth;
-
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
-}
-
-a,
-button {
-  @apply cursor-pointer;
-}
-
-/*             ---break---          */
-
-/* .light {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.809 0.105 251.813);
-  --chart-2: oklch(0.623 0.214 259.815);
-  --chart-3: oklch(0.546 0.245 262.881);
-  --chart-4: oklch(0.488 0.243 264.376);
-  --chart-5: oklch(0.424 0.199 265.638);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
-} */
-
-/*             ---break---          */
-
-@theme inline {
   --font-sans: 'Geist Variable', sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -199,18 +104,66 @@ button {
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  /*             Fonts          */
+  --font-raleway: 'Raleway', ui-sans-serif, system-ui, sans-serif;
+  --font-geist: 'Geist', ui-sans-serif, system-ui, sans-serif;
+
+  /*             Screen sizes          */
+  --breakpoint-*: initial;
+
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1200px;
+  --breakpoint-xl: 1440px;
+
+  --width-phone: 22.5rem; /* 360px */
+  --width-tablet: 42rem; /* 672px */
+  --width-desktop: 80rem; /* 1280px */
+  --width-wide: 90rem; /* 1440px */
+
+  --max-width-phone: 22.5rem; /* 360px */
+  --max-width-tablet: 42rem; /* 672px */
+  --max-width-desktop: 80rem; /* 1280px */
+  --max-width-wide: 90rem; /* 1440px */
 }
 
-/*             ---break---          */
+@layer utilities {
+  .title-underline {
+    display: inline-flex;
+    position: relative;
+    justify-content: center;
+
+    &::after {
+      position: absolute;
+      content: '';
+      bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 2px;
+      background-color: var(--accent);
+    }
+  }
+}
+
+a,
+button {
+  @apply cursor-pointer;
+}
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply flex flex-col bg-background text-foreground  selection:bg-(--accent) min-w-[320px];
+
+    @media (prefers-color-scheme: dark) {
+      color-scheme: dark;
+    }
   }
   html {
-    @apply font-sans;
+    @apply font-raleway scroll-smooth;
   }
 }

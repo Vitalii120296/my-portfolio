@@ -1,6 +1,6 @@
-import type { TImage } from '@/types/images';
+import type { IImage } from '@/types/types';
 
-export const IMAGES: TImage[] = [
+export const IMAGES: IImage[] = [
   { name: 'React', href: './app/assets/icons/languages/react.png' },
   { name: 'Typescript', href: './app/assets/icons/languages/typescript.svg' },
   { name: 'Javascript', href: './app/assets/icons/languages/javascript.svg' },

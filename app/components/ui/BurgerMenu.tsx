@@ -1,82 +1,47 @@
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger
-} from '@/components/ui/drawer';
-import { Button } from './Button';
+import { Drawer, DrawerClose, DrawerContent } from '@/components/ui/drawer';
+import { useBurgerMenu } from '@/store/store';
+import { Avatar } from './Avatar';
+import { Close } from 'griddy-icons';
+import { NAVLINKS } from '@/constants/navLinks';
+import { NavLink } from 'react-router';
 
 export const BurgerMenu = () => {
+  const { isOpen, closeBurgerMenu } = useBurgerMenu();
+
   return (
-    <Drawer direction="right">
-      <DrawerTrigger>Open</DrawerTrigger>
-      <DrawerContent>
-        <DrawerHeader>
-          <DrawerTitle>Are you absolutely sure?</DrawerTitle>
-          <DrawerDescription>This action cannot be undone.</DrawerDescription>
-        </DrawerHeader>
-        <DrawerFooter>
-          <DrawerClose>
-            <Button variant="primary">Cancel</Button>
+    <Drawer
+      direction="right"
+      open={isOpen}
+      onOpenChange={(open) => !open && closeBurgerMenu()}
+    >
+      <DrawerContent className="z-50 rounded-none!">
+        <div className="w-full p-4 my-4 relative">
+          <Avatar isBurgerMenu={true} />
+          <DrawerClose asChild className="absolute right-5 top-0">
+            <button className="p-1 text-foreground/50">
+              <Close size={24} />
+            </button>
           </DrawerClose>
-        </DrawerFooter>
+        </div>
+        <div className="h-full bg-sidebar text-sidebar-foreground">
+          <ul className="flex flex-col items-center gap-1 list-none ">
+            {NAVLINKS.map((link) => (
+              <li className="w-full flex">
+                <NavLink
+                  key={link.id}
+                  to={`#${link.id}`}
+                  data-id={link.id}
+                  className="py-2 w-full pl-4 border-l-5 border-accent text-base font-medium"
+                  aria-label={link.aria}
+                  onClick={() => closeBurgerMenu()}
+                >
+                  {link.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </div>
       </DrawerContent>
     </Drawer>
   );
 };
-
-// export function DrawerWithSides() {
-//   return (
-//     <div className="flex flex-wrap gap-2">
-//       {DRAWER_SIDES.map((side) => (
-//         <Drawer
-//           key={side}
-//           direction={
-//             side === 'bottom' ? undefined : (side as 'top' | 'right' | 'left')
-//           }
-//         >
-//           <DrawerTrigger asChild>
-//             <Button variant="outline" className="capitalize">
-//               {side}
-//             </Button>
-//           </DrawerTrigger>
-//           <DrawerContent className="data-[vaul-drawer-direction=bottom]:max-h-[50vh] data-[vaul-drawer-direction=top]:max-h-[50vh]">
-//             <DrawerHeader>
-//               <DrawerTitle>Move Goal</DrawerTitle>
-//               <DrawerDescription>
-//                 Set your daily activity goal.
-//               </DrawerDescription>
-//             </DrawerHeader>
-//             <div className="no-scrollbar overflow-y-auto px-4">
-//               {Array.from({ length: 10 }).map((_, index) => (
-//                 <p
-//                   key={index}
-//                   className="mb-4 leading-normal style-lyra:mb-2 style-lyra:leading-relaxed"
-//                 >
-//                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-//                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-//                   Ut enim ad minim veniam, quis nostrud exercitation ullamco
-//                   laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-//                   irure dolor in reprehenderit in voluptate velit esse cillum
-//                   dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-//                   cupidatat non proident, sunt in culpa qui officia deserunt
-//                   mollit anim id est laborum.
-//                 </p>
-//               ))}
-//             </div>
-//             <DrawerFooter>
-//               <Button>Submit</Button>
-//               <DrawerClose asChild>
-//                 <Button variant="outline">Cancel</Button>
-//               </DrawerClose>
-//             </DrawerFooter>
-//           </DrawerContent>
-//         </Drawer>
-//       ))}
-//     </div>
-//   );
-// }

@@ -12,7 +12,6 @@ import '@/styles/index.css';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { useEffect, useState } from 'react';
-import { BurgerMenu } from './components/ui/BurgerMenu';
 
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -66,7 +65,7 @@ export default function App() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // перевірка при монтуванні
+    handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -74,16 +73,15 @@ export default function App() {
   return (
     <>
       <header
-        className={`flex  z-9999 w-full bg-background border-b border-b-bgGray 
+        className={`flex z-40 w-full bg-background border-b border-b-border
           ${fixedHeader && 'fixed inset-x-0 top-0 animate-header-appear shadow-lg'}`}
       >
         <Header />
       </header>
-      <main className="flex flex-col flex-1 w-full mx-auto bg-bgDark2">
-        {/* <BurgerMenu /> */}
+      <main className="flex flex-col flex-1 w-full mx-auto bg-bgc-dark-2">
         <Outlet />
       </main>
-      <footer className="bg-bgDark2">
+      <footer className="bg-bgc-dark-2">
         <Footer />
       </footer>
     </>
