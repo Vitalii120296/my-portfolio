@@ -1,0 +1,61 @@
+import React from 'react';
+import { Tooltip } from '../ui/Tooltip';
+
+export const SocialLinks = () => {
+  return (
+    <>
+      <div className="w-8 h-8 relative [&>a]:opacity-30 [&>a:hover]:opacity-100 hover:[&>div]:opacity-100 hover:[&>div]:scale-100">
+        <a
+          className="transition-all duration-300"
+          href="https://www.facebook.com/v.hulaievych"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg fill="#000000" viewBox="0 0 128 128" className="">
+            <rect width="128" height="128" rx="15" fill="white"></rect>
+            <path
+              fill="black"
+              d="M86.48 123.17V77.34h15.38l2.3-17.86H86.48v-11.4c0-5.17 1.44-8.7 8.85-8.7h9.46v-16A126.56 126.56 0 0091 22.7c-13.62 0-23 8.3-23 23.61v13.17H52.62v17.86H68v45.83z"
+            />
+          </svg>
+        </a>
+
+        <Tooltip value="Facebook" />
+      </div>
+      <div className="w-8 h-8 relative [&>a]:opacity-30 [&>a:hover]:opacity-100 hover:[&>div]:opacity-100 hover:[&>div]:scale-100">
+        <a
+          className="transition-all duration-300"
+          href="http://www.linkedin.com/in/vitalii-hulaievych-6a623b349"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg fill="#000000" viewBox="0 0 128 128" className="">
+            <rect width="128" height="128" rx="15" fill="white"></rect>
+            <path
+              fill="black"
+              d="M36.5 50H52v56H36.5zM44.25 22c-5.33 0-9.25 3.91-9.25 9 0 5.06 3.84 9 9.08 9h.1c5.4 0 9.25-3.94 9.25-9-0.1-5.1-3.85-9-9.18-9zM58 50h14.5v7.61h.21c2-3.62 7-7.41 14.4-7.41C101.75 50.2 108 55.6 108 67.6V106H92.5V70.88c0-7.7-2.75-12.95-9.64-12.95-5.25 0-8.37 3.54-9.75 6.97-.5 1.16-.62 2.75-.62 4.37V106H58z"
+            />
+          </svg>
+        </a>
+        <Tooltip value="Linked In" />
+      </div>
+      <div className="w-8 h-8 relative [&>a]:opacity-30 [&>a:hover]:opacity-100 hover:[&>div]:opacity-100 hover:[&>div]:scale-100">
+        <a
+          className="transition-all duration-300"
+          href="https://github.com/Vitalii120296"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg fill="#000000" viewBox="0 0 128 128" className="">
+            <rect width="128" height="128" rx="15" fill="white"></rect>
+            <path
+              fill="black"
+              d="M64 12C34.6 12 12 34.6 12 64c0 23 14.9 42.5 35.6 49.4 2.6.5 3.5-1.1 3.5-2.4v-8.6c-14.5 3.2-17.6-7-17.6-7-2.4-6.1-5.9-7.7-5.9-7.7-4.8-3.2.4-3.2.4-3.2 5.3.4 8.1 5.4 8.1 5.4 4.7 8.1 12.2 5.8 15.2 4.4.5-3.4 1.9-5.8 3.4-7.1-11.6-1.3-23.9-5.8-23.9-25.9 0-5.7 2-10.3 5.3-13.9-.5-1.3-2.3-6.6.5-13.7 0 0 4.4-1.4 14.4 5.3a49.5 49.5 0 0126.2 0c10-6.7 14.4-5.3 14.4-5.3 2.8 7.1 1 12.4.5 13.7 3.3 3.6 5.3 8.2 5.3 13.9 0 20.2-12.3 24.6-24 25.9 1.9 1.7 3.6 4.9 3.6 9.8v14.5c0 1.3.9 2.9 3.5 2.4A52.2 52.2 0 00116 64c0-29.4-23.6-52-52-52z"
+            />
+          </svg>
+        </a>
+        <Tooltip value="Git Hub" />
+      </div>
+    </>
+  );
+};

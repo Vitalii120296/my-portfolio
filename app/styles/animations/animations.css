@@ -1,0 +1,109 @@
+@layer utilities {
+  .animate-header-appear {
+    animation: header-appear 0.5s ease-in-out forwards;
+  }
+
+  .wooble-circle::after {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    inset: 0;
+    border-radius: 100%;
+    border: 7px solid white;
+    animation: zoom-wooble 2s ease-in-out infinite;
+  }
+
+  .animate-carousel {
+    animation: carousel 20s linear infinite;
+  }
+
+  @media (min-width: 481px) {
+    .animate-carousel-sm {
+      animation: carousel 20s linear infinite !important;
+    }
+  }
+
+  .animate-carousel-vertical {
+    animation: carousel-vertical 15s linear infinite;
+  }
+
+  .carousel-container:hover .animate-carousel,
+  .carousel-container:hover .animate-carousel-vertical,
+  .carousel-container:hover .animate-carousel-sm {
+    animation-play-state: paused !important;
+  }
+
+  .animate-wave path {
+    animation-name: wave;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+}
+
+@keyframes zoom-wooble {
+  from {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  to {
+    transform: scale(1.25);
+    opacity: 0;
+    box-shadow:
+      0 0 10px white,
+      0 0 15px white,
+      0 0 20px white;
+  }
+}
+
+@keyframes carousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes carousel-vertical {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(0%);
+    opacity: 0%;
+  }
+  20% {
+    opacity: 100%;
+  }
+  80% {
+    opacity: 100%;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes header-appear {
+  0% {
+    transform: translateY(-100%);
+  }
+  35% {
+    transform: translateY(-20%);
+  }
+  55% {
+    transform: translateY(0);
+  }
+  85% {
+    transform: translateY(-10%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
