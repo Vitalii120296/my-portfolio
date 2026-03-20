@@ -198,7 +198,7 @@ export const About = () => {
               <div className="flex flex-col w-full gap-2 text-5xl font-bold text-center md:text-3xl lg:text-5xl">
                 <p className="text-accent">
                   <span className="text-foreground">
-                    <AnimatedNumber value={experience} duration={0.3} />
+                    <AnimatedNumber value={+experience} duration={0.3} />
                   </span>
                   {'+'}
                 </p>
