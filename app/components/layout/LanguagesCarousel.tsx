@@ -13,7 +13,6 @@ export const LanguagesCarousel = () => {
               src={href}
               alt={name}
               className="w-auto h-10 sm:h-12 opacity-80 hover:opacity-100 drop-shadow-lg"
-              loading="lazy"
             />
           </div>
         ))}
@@ -22,13 +21,12 @@ export const LanguagesCarousel = () => {
         {[...IMAGES].map(({ name, href }, i) => (
           <div
             key={i}
-            className="px-6 transition-all duration-300 shrink-0 hover:scale-110"
+            className="px-6 transition-all duration-300 shrink-0 hover:scale-110 "
           >
             <img
               src={href}
               alt={name}
               className="w-auto h-10 sm:h-12 opacity-80 hover:opacity-100 drop-shadow-lg"
-              loading="lazy"
             />
           </div>
         ))}
