@@ -24,7 +24,7 @@ export const HomePage = () => {
     <>
       {/* Heading Section */}
       <section
-        className="flex relative flex-col min-h-[calc(100vh-55px)]
+        className="flex relative flex-col min-h-[calc(100vh)]
                     text-center justify-center items-center z-10 w-full mx-auto px-4
                     after:absolute after:content-[''] after:w-full after:h-0.5 
                     after:bg-linear-to-r after:from-white/80 after:to-transparent 
@@ -71,7 +71,7 @@ export const HomePage = () => {
             viewBox="0 0 512 512"
             className="font-raleway text-[400px] font-black italic opacity-15 size-full"
           >
-            <text x="-3.7%" y="316" stroke="#f8f8f8" fill="#1f1f1f">
+            <text x="-3.7%" y="350" stroke="#f8f8f8" fill="#1f1f1f">
               V
             </text>
             <text x="40%" y="460" stroke="#f8f8f8" fill="#1f1f1f">

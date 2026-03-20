@@ -96,7 +96,7 @@ export const Projects = () => {
               key={proj.id}
               className="flex flex-col flex-none w-full p-1 overflow-hidden border h-130 sm:w-130  bg-card rounded-2xl border-border"
             >
-              <div className="min-h-[50%] sm:min-h-[70%]  overflow-hidden rounded-2xl">
+              <div className="min-h-[50%] sm:min-h-[70%] rounded-2xl overflow-hidden ">
                 <img
                   src={proj.img}
                   alt={proj.name}
@@ -135,7 +135,7 @@ export const Projects = () => {
                 <img
                   src={proj.img}
                   alt={proj.name}
-                  className="object-cover w-full"
+                  className="object-cover w-full rounded-2xl"
                 />
               </div>
               <div className="flex flex-col h-full gap-1 px-4 py-2">
