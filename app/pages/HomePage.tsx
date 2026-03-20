@@ -8,6 +8,7 @@ import { Projects } from '@/components/layout/sections/Projects';
 import { MyCv } from '@/components/layout/sections/MyCv';
 import { Hire } from '@/components/layout/sections/Hire';
 import { Avatar } from '@/components/ui/Avatar';
+import { Testimonials } from '@/components/layout/sections/Testimonials';
 
 export const HomePage = () => {
   useScrollSpy([
@@ -97,6 +98,7 @@ export const HomePage = () => {
       <Projects />
 
       {/* TESTIMONIALS */}
+      <Testimonials />
 
       {/* CV */}
       <MyCv />

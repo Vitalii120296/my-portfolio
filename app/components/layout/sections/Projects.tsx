@@ -1,8 +1,46 @@
 import { SmallText } from '@/components/ui/SmallText';
 import { Heart } from 'griddy-icons';
-import React from 'react';
+import { PROJECTS } from '@/constants/projects';
+import { useEffect, useState } from 'react';
+import { useProjects } from '@/hooks/useProjects';
+
+interface ILikedProjects {
+  id: string;
+}
 
 export const Projects = () => {
+  const { data, addLike, removeLike } = useProjects();
+  const [likedProject, setLikedProject] = useState<ILikedProjects[]>([]);
+
+  console.log(likedProject);
+  const isLiked = (id: string) => likedProject.some((p) => p.id === id);
+
+  useEffect(() => {
+    const storage = localStorage.getItem('projects');
+
+    setLikedProject(storage ? JSON.parse(storage) : []);
+  }, []);
+
+  const tougleLike = async (id: string) => {
+    if (!data) return;
+
+    console.log(isLiked(id));
+    if (isLiked(id)) {
+      removeLike.mutate(id);
+
+      const unliked = [...likedProject.filter((p) => p.id !== id)];
+
+      setLikedProject(unliked);
+      localStorage.setItem('projects', JSON.stringify(unliked));
+    } else {
+      addLike.mutate(id);
+      const liked = [...likedProject, { id }];
+
+      setLikedProject(liked);
+      localStorage.setItem('projects', JSON.stringify(liked));
+    }
+  };
+
   return (
     <section
       className="relative flex flex-col pt-20 mb-4 bg-black md:pt-28 lg:pt-40 xl:pt-55"
@@ -50,103 +88,75 @@ export const Projects = () => {
         </p>
       </div>
       {/* Projects Carousel */}
-      <div className="relative flex flex-col items-center px-10 overflow-hidden max-h-125 sm:max-h-155 sm:flex-row pb-14 will-change-transform">
+      <div className="relative flex flex-col items-center px-10 overflow-hidden max-h-125 sm:max-h-155 sm:flex-row pb-14 will-change-transform carousel-container">
         {/* Cards */}
         <div className="flex flex-col gap-10 pt-10 sm:py-10 max-sm:w-full sm:pr-10 sm:flex-row flex-nowrap animate-carousel-vertical animate-carousel-sm">
-          <div className="flex flex-col flex-none w-full p-1 overflow-hidden border h-70 sm:w-130 sm:h-100 bg-card rounded-2xl border-border">
-            <div className="min-h-[70%] bg-amber-600/20 rounded-2xl">
-              <img src="" alt="" />
-            </div>
-            <div className="flex flex-col justify-center h-full gap-1 px-4">
-              <div className="flex justify-between">
-                <p className="font-semibold">title</p>
-                <button className="flex items-center gap-1 text-red">
-                  <Heart size={22} />
-                  <span>1</span>
-                </button>
+          {PROJECTS.map((proj, index) => (
+            <div
+              key={proj.id}
+              className="flex flex-col flex-none w-full p-1 overflow-hidden border h-130 sm:w-130  bg-card rounded-2xl border-border"
+            >
+              <div className="min-h-[50%] sm:min-h-[70%]  overflow-hidden rounded-2xl">
+                <img
+                  src={proj.img}
+                  alt={proj.name}
+                  className="object-cover w-full rounded-2xl"
+                />
               </div>
-              <SmallText value="text" />
-            </div>
-          </div>
-          <div className="flex flex-col flex-none w-full p-1 overflow-hidden border h-70 sm:w-130 sm:h-100 bg-card rounded-2xl border-border">
-            <div className="min-h-[70%] bg-amber-600/20 rounded-2xl">
-              <img src="" alt="" />
-            </div>
-            <div className="flex flex-col justify-center h-full gap-1 px-4">
-              <div className="flex justify-between">
-                <p className="font-semibold">title</p>
-                <button className="flex items-center gap-1 text-red">
-                  <Heart size={22} />
-                  <span>1</span>
-                </button>
+              <div className="flex flex-col h-full gap-1 px-4 py-2">
+                <div className="flex justify-between ">
+                  <p className="font-semibold">{proj.name}</p>
+                  <button
+                    className="flex items-center gap-1 text-red"
+                    onClick={() => {
+                      tougleLike(proj.id);
+                    }}
+                  >
+                    <Heart size={22} filled={isLiked(proj.id)} />
+                    <span>
+                      {data?.find((p) => p.id === proj.id)?.likes ?? 0}
+                    </span>
+                  </button>
+                </div>
+                <SmallText value={proj.description} />
               </div>
-              <SmallText value="text" />
             </div>
-          </div>
-          <div className="flex flex-col flex-none w-full p-1 overflow-hidden border h-70 sm:w-130 sm:h-100 bg-card rounded-2xl border-border">
-            <div className="min-h-[70%] bg-amber-600/20 rounded-2xl">
-              <img src="" alt="" />
-            </div>
-            <div className="flex flex-col justify-center h-full gap-1 px-4">
-              <div className="flex justify-between">
-                <p className="font-semibold">title</p>
-                <button className="flex items-center gap-1 text-red">
-                  <Heart size={22} />
-                  <span>1</span>
-                </button>
-              </div>
-              <SmallText value="text" />
-            </div>
-          </div>
+          ))}
         </div>
 
         {/* Additional cards */}
         <div className="flex flex-col gap-10 pt-10 sm:py-10 max-sm:w-full sm:pr-10 sm:flex-row flex-nowrap animate-carousel-vertical animate-carousel-sm">
-          <div className="flex flex-col flex-none w-full p-1 overflow-hidden border h-70 sm:w-130 sm:h-100 bg-card rounded-2xl border-border">
-            <div className="min-h-[70%] bg-amber-600/20 rounded-2xl">
-              <img src="" alt="" />
-            </div>
-            <div className="flex flex-col justify-center h-full gap-1 px-4">
-              <div className="flex justify-between">
-                <p className="font-semibold">title</p>
-                <button className="flex items-center gap-1 text-red">
-                  <Heart size={22} />
-                  <span>1</span>
-                </button>
+          {PROJECTS.map((proj, index) => (
+            <div
+              key={proj.id}
+              className="flex flex-col flex-none w-full p-1 overflow-hidden border h-130 sm:w-130  bg-card rounded-2xl border-border"
+            >
+              <div className="min-h-[50%] sm:min-h-[70%] rounded-2xl overflow-hidden ">
+                <img
+                  src={proj.img}
+                  alt={proj.name}
+                  className="object-cover w-full"
+                />
               </div>
-              <SmallText value="text" />
-            </div>
-          </div>
-          <div className="flex flex-col flex-none w-full p-1 overflow-hidden border h-70 sm:w-130 sm:h-100 bg-card rounded-2xl border-border">
-            <div className="min-h-[70%] bg-amber-600/20 rounded-2xl">
-              <img src="" alt="" />
-            </div>
-            <div className="flex flex-col justify-center h-full gap-1 px-4">
-              <div className="flex justify-between">
-                <p className="font-semibold">title</p>
-                <button className="flex items-center gap-1 text-red">
-                  <Heart size={22} />
-                  <span>1</span>
-                </button>
+              <div className="flex flex-col h-full gap-1 px-4 py-2">
+                <div className="flex justify-between ">
+                  <p className="font-semibold">{proj.name}</p>
+                  <button
+                    className="flex items-center gap-1 text-red"
+                    onClick={() => {
+                      tougleLike(proj.id);
+                    }}
+                  >
+                    <Heart size={22} filled={isLiked(proj.id)} />
+                    <span>
+                      {data?.find((p) => p.id === proj.id)?.likes ?? 0}
+                    </span>
+                  </button>
+                </div>
+                <SmallText value={proj.description} />
               </div>
-              <SmallText value="text" />
             </div>
-          </div>
-          <div className="flex flex-col flex-none w-full p-1 overflow-hidden border h-70 sm:w-130 sm:h-100 bg-card rounded-2xl border-border">
-            <div className="min-h-[70%] bg-amber-600/20 rounded-2xl">
-              <img src="" alt="" />
-            </div>
-            <div className="flex flex-col justify-center h-full gap-1 px-4">
-              <div className="flex justify-between">
-                <p className="font-semibold">title</p>
-                <button className="flex items-center gap-1 text-red">
-                  <Heart size={22} />
-                  <span>1</span>
-                </button>
-              </div>
-              <SmallText value="text" />
-            </div>
-          </div>
+          ))}
         </div>
         <div className="absolute inset-y-0 left-0 hidden w-1/4 pointer-events-none bg-linear-to-r from-black sm:flex"></div>
         <div className="absolute inset-y-0 right-0 hidden w-1/4 pointer-events-none bg-linear-to-l from-black sm:flex"></div>

@@ -1,8 +1,32 @@
 import { SmallText } from '@/components/ui/SmallText';
 import { IMAGES } from '@/constants/images';
+import { db } from '@/firebase';
+import { visitorService } from '@/services/visitorService';
+import { doc, onSnapshot } from 'firebase/firestore';
 import { Code, EditLine } from 'griddy-icons';
+import { useEffect, useState } from 'react';
 
 export const About = () => {
+  const [visitors, setVisitors] = useState(0);
+
+  const expYears = (from: Date, to: Date) => {
+    let years = to.getFullYear() - from.getFullYear();
+
+    if (from.getMonth() > to.getMonth()) years--;
+
+    return years;
+  };
+
+  useEffect(() => {
+    visitorService.incrementVisitors();
+
+    const unsub = onSnapshot(doc(db, 'stats', 'visitors'), (snap) => {
+      setVisitors(snap.data()?.count || 0);
+    });
+
+    return () => unsub();
+  }, []);
+
   return (
     <section
       className="flex flex-col w-full px-5 mx-auto lg:px-10 pt-15 md:pt-32 max-w-desktop"
@@ -155,7 +179,7 @@ export const About = () => {
               </div>
               <div className="flex flex-col w-full gap-2 text-5xl font-bold text-center md:text-3xl lg:text-5xl">
                 <p className="text-accent">
-                  <span className="text-foreground">96</span>%
+                  <span className="text-foreground">100</span>%
                 </p>
                 <p className="text-sm font-normal whitespace-normal text-foreground/50 font-raleway">
                   Positive Client Feedback
@@ -163,7 +187,7 @@ export const About = () => {
               </div>
               <div className="flex flex-col w-full gap-2 text-5xl font-bold text-center md:text-3xl lg:text-5xl">
                 <p className="text-accent">
-                  <span className="text-foreground">1</span>
+                  <span className="text-foreground">{`${expYears(new Date('2024.09.01'), new Date())}`}</span>
                   {'+'}
                 </p>
                 <p className="text-sm font-normal whitespace-normal text-foreground/50 font-raleway">
@@ -172,7 +196,7 @@ export const About = () => {
               </div>
               <div className="flex flex-col w-full gap-2 text-5xl font-bold text-center md:text-3xl lg:text-5xl">
                 <p className="text-accent">
-                  <span className="text-foreground">3,668</span>
+                  <span className="text-foreground">{visitors}</span>
                 </p>
                 <p className="text-sm font-normal whitespace-normal text-foreground/50 font-raleway">
                   Total Unique Visitors

@@ -3,10 +3,19 @@ import { useBurgerMenu } from '@/store/store';
 import { Avatar } from './Avatar';
 import { Close } from 'griddy-icons';
 import { NAVLINKS } from '@/constants/navLinks';
-import { NavLink } from 'react-router';
+import { NavLink, useLocation } from 'react-router';
+import { useEffect, useState } from 'react';
 
 export const BurgerMenu = () => {
   const { isOpen, closeBurgerMenu } = useBurgerMenu();
+  const { hash } = useLocation();
+  const [activeId, setActiveId] = useState('home');
+
+  useEffect(() => {
+    const id = hash.replace('#', '') || 'home';
+
+    setActiveId(id);
+  }, [hash]);
 
   return (
     <Drawer
@@ -25,15 +34,16 @@ export const BurgerMenu = () => {
         </div>
         <div className="h-full bg-sidebar text-sidebar-foreground">
           <ul className="flex flex-col items-center gap-1 list-none ">
-            {NAVLINKS.map((link) => (
+            {NAVLINKS.map((link, i) => (
               <li className="w-full flex">
                 <NavLink
-                  key={link.id}
+                  key={i}
                   to={`#${link.id}`}
                   data-id={link.id}
-                  className="py-2 w-full pl-4 border-l-5 border-accent text-base font-medium"
                   aria-label={link.aria}
                   onClick={() => closeBurgerMenu()}
+                  className={`py-2 w-full pl-4 border-l-5 border-transparent text-base font-medium 
+                      ${activeId === link.id && 'bg-sidebar-primary border-accent!'}`}
                 >
                   {link.label}
                 </NavLink>

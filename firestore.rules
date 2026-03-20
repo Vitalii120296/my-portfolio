@@ -1,0 +1,7 @@
+rules_version = '2';
+service cloud.firestore {
+  match /stats/visitors {
+  allow read: if true;
+  allow update: if true;
+}
+}

@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/Button';
 import type { IForm } from '@/types/types';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import type { SubmitHandler } from 'react-hook-form';
 
@@ -7,13 +8,52 @@ export const Hire = () => {
   const { register, handleSubmit, watch, reset, formState } = useForm<IForm>({
     mode: 'onChange'
   });
+  const [isSending, setIsSending] = useState(false);
+  const [isError, setIsError] = useState<string | null>(null);
+  const [isSended, setIsSended] = useState(false);
 
   const { errors, isValid } = formState;
 
-  const onSubmit: SubmitHandler<IForm> = (data) => {
-    console.log(data);
-    reset();
+  const onSubmit: SubmitHandler<IForm> = async (data) => {
+    setIsSending(true);
+    setIsError(null);
+    const text = `
+<b>📬 Нове повідомлення з сайту</b>
+👤 <b>Ім’я:</b> ${data.name}
+📧 <b>Email:</b> ${data.email}
+📝 <b>Повідомлення:</b> ${data.message}
+    `;
+
+    try {
+      const res = await fetch(
+        `https://api.telegram.org/bot${import.meta.env.VITE_TELEGRAM_BOT_TOKEN}/sendMessage`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            chat_id: import.meta.env.VITE_TELEGRAM_CHAT_ID,
+            text,
+            parse_mode: 'HTML'
+          })
+        }
+      );
+      setIsSended(true);
+
+      setTimeout(() => {
+        setIsSended(false);
+      }, 3000);
+
+      reset();
+    } catch (error) {
+      console.error(error);
+      setIsError('Something went wrong');
+    } finally {
+      setIsSending(false);
+    }
   };
+
   return (
     <section
       className="flex flex-col w-full px-5 mx-auto lg:px-10 py-15 md:py-32 max-w-desktop"
@@ -109,8 +149,12 @@ export const Hire = () => {
             )}
           </div>
           <Button variant="wide" disabled={!isValid}>
-            Send message
+            {isSending ? 'Sending...' : 'Send message'}
           </Button>
+          {isError && <p className="text-xs text-red">{`${isError}`}</p>}
+          {isSended && (
+            <p className="text-xs text-green-500">{`Your message has been sent successfully.`}</p>
+          )}
         </form>
       </div>
     </section>

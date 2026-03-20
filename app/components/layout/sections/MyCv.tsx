@@ -58,13 +58,13 @@ export const MyCv = () => {
             x="-1"
             y="-1"
           >
-            <path d="M.5 80V.5H80" fill="none" stroke-dasharray="4 2"></path>
+            <path d="M.5 80V.5H80" fill="none" strokeDasharray="4 2"></path>
           </pattern>
         </defs>
         <rect
           width="100%"
           height="100%"
-          stroke-width="0"
+          strokeWidth="0"
           fill="url(#_S_2_)"
         ></rect>
       </svg>

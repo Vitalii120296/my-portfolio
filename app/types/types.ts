@@ -8,3 +8,8 @@ export interface IImage {
   name: string;
   href: string;
 }
+
+export interface IProject {
+  id: string;
+  likes: number;
+}

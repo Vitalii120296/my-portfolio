@@ -12,6 +12,10 @@ import '@/styles/index.css';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { useEffect, useState } from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+
+const queryClient = new QueryClient();
 
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -72,18 +76,21 @@ export default function App() {
 
   return (
     <>
-      <header
-        className={`flex z-40 w-full bg-background border-b border-b-border
+      <QueryClientProvider client={queryClient}>
+        <header
+          className={`flex z-40 w-full bg-background border-b border-b-border
           ${fixedHeader && 'fixed inset-x-0 top-0 animate-header-appear shadow-lg'}`}
-      >
-        <Header />
-      </header>
-      <main className="flex flex-col flex-1 w-full mx-auto bg-bgc-dark-2">
-        <Outlet />
-      </main>
-      <footer className="bg-bgc-dark-2">
-        <Footer />
-      </footer>
+        >
+          <Header />
+        </header>
+        <main className="flex flex-col flex-1 w-full mx-auto bg-bgc-dark-2">
+          <Outlet />
+        </main>
+        <footer className="bg-bgc-dark-2">
+          <Footer />
+        </footer>
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
     </>
   );
 }

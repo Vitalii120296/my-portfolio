@@ -19,7 +19,7 @@ export const IMAGES: IImage[] = [
   { name: 'Sass', href: './app/assets/icons/languages/sass.svg' },
   {
     name: 'Tailwind Css',
-    href: './app/assets/icons/languages/tailwindcss.svg'
+    href: './app/assets/icons/languages/tailwind-css.svg'
   },
   { name: 'Redux', href: './app/assets/icons/languages/redux.svg' },
   { name: 'Postgresql', href: './app/assets/icons/languages/postgresql.svg' },
@@ -56,5 +56,9 @@ export const IMAGES: IImage[] = [
   {
     name: 'React Hook Form',
     href: './app/assets/icons/languages/react-hook-form.svg'
+  },
+  {
+    name: 'Tanstack Query',
+    href: './app/assets/icons/languages/tanstack.svg'
   }
 ];
