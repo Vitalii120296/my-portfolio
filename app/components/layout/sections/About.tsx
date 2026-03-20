@@ -3,7 +3,7 @@ import { IMAGES } from '@/constants/images';
 import { db } from '@/firebase';
 import { visitorService } from '@/services/visitorService';
 import { doc, onSnapshot } from 'firebase/firestore';
-import { Code, EditLine } from 'griddy-icons';
+import { BookmarkAdd, BookOpen, Code, EditLine } from 'griddy-icons';
 import { useEffect, useState } from 'react';
 
 export const About = () => {
@@ -80,8 +80,8 @@ export const About = () => {
                   React Engineering
                 </h4>
                 <p className="mt-2 text-sm">
-                  Building scalable, maintainable web apps with modern
-                  frameworks like React and Next.js.
+                  Building scalable, maintainable web apps with modern framework
+                  like React.
                 </p>
                 <span className="absolute right-6 top-5 text-accent">
                   <Code size={24} />
@@ -110,30 +110,30 @@ export const About = () => {
             <div className="relative">
               <div className="px-6 py-5 bg-background rounded-xl">
                 <h4 className="text-xl leading-tight tracking-wide text-accent">
-                  BS in Information Technology
+                  Chervonohrad Mining and Economic College
                 </h4>
                 <p className="text-xs text-foreground/60">
-                  Major in Information System
+                  Qualification and Degree:
                 </p>
                 <p className="mt-2 text-sm">
-                  Partido State University - Goa, Camarines Sur
+                  Junior Specialist in Software Development Dates Attended
                 </p>
                 <span className="absolute right-6 top-5 text-accent">
-                  <Code size={24} />
+                  <BookOpen size={24} />
                 </span>
               </div>
             </div>
             <div className="relative">
               <div className="px-6 py-5 bg-background rounded-xl">
                 <h4 className="text-xl leading-tight tracking-wide text-accent">
-                  MINDTECH
+                  Mate academy
                 </h4>
                 <p className="text-xs text-foreground/60">
-                  Training and Development Institute Inc.
+                  Qualification and Degree:
                 </p>
-                <p className="mt-2 text-sm">Rosario, Pasig City</p>
+                <p className="mt-2 text-sm">Full-stack developer</p>
                 <span className="absolute right-6 top-5 text-accent">
-                  <EditLine size={24} />
+                  <BookmarkAdd size={24} />
                 </span>
               </div>
             </div>
