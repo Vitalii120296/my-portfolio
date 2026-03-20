@@ -36,6 +36,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#2d2e32"></meta>
         <Meta />
         <Links />
       </head>
@@ -78,8 +79,8 @@ export default function App() {
     <>
       <QueryClientProvider client={queryClient}>
         <header
-          className={`flex z-40 w-full bg-background border-b border-b-border
-          ${fixedHeader && 'fixed inset-x-0 top-0 animate-header-appear shadow-lg'}`}
+          className={`absolute flex z-40 inset-x-0 top-0 w-full bg-background border-b border-b-border
+          ${fixedHeader && 'fixed animate-header-appear shadow-lg'}`}
         >
           <Header />
         </header>

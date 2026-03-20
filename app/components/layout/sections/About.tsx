@@ -1,3 +1,4 @@
+import { AnimatedNumber } from '@/components/ui/AnimatedNumber';
 import { SmallText } from '@/components/ui/SmallText';
 import { IMAGES } from '@/constants/images';
 import { db } from '@/firebase';
@@ -9,7 +10,9 @@ import { useEffect, useState } from 'react';
 export const About = () => {
   const [visitors, setVisitors] = useState(0);
 
-  const expYears = (from: Date, to: Date) => {
+  const expYears = () => {
+    const from = new Date('2024.09.01');
+    const to = new Date();
     let years = to.getFullYear() - from.getFullYear();
 
     if (from.getMonth() > to.getMonth()) years--;
@@ -170,7 +173,9 @@ export const About = () => {
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 font-geist">
               <div className="flex flex-col w-full gap-2 text-5xl font-bold text-center md:text-3xl lg:text-5xl">
                 <p className="text-accent ">
-                  <span className="text-foreground ">7</span>
+                  <span className="text-foreground ">
+                    <AnimatedNumber value={7} />
+                  </span>
                   {'+'}
                 </p>
                 <p className="text-sm font-normal whitespace-normal text-foreground/50 font-raleway">
@@ -179,7 +184,10 @@ export const About = () => {
               </div>
               <div className="flex flex-col w-full gap-2 text-5xl font-bold text-center md:text-3xl lg:text-5xl">
                 <p className="text-accent">
-                  <span className="text-foreground">100</span>%
+                  <span className="text-foreground">
+                    <AnimatedNumber value={100} />
+                  </span>
+                  %
                 </p>
                 <p className="text-sm font-normal whitespace-normal text-foreground/50 font-raleway">
                   Positive Client Feedback
@@ -187,7 +195,9 @@ export const About = () => {
               </div>
               <div className="flex flex-col w-full gap-2 text-5xl font-bold text-center md:text-3xl lg:text-5xl">
                 <p className="text-accent">
-                  <span className="text-foreground">{`${expYears(new Date('2024.09.01'), new Date())}`}</span>
+                  <span className="text-foreground">
+                    <AnimatedNumber value={expYears()} duration={0.3} />
+                  </span>
                   {'+'}
                 </p>
                 <p className="text-sm font-normal whitespace-normal text-foreground/50 font-raleway">
@@ -196,7 +206,9 @@ export const About = () => {
               </div>
               <div className="flex flex-col w-full gap-2 text-5xl font-bold text-center md:text-3xl lg:text-5xl">
                 <p className="text-accent">
-                  <span className="text-foreground">{visitors}</span>
+                  <span className="text-foreground">
+                    <AnimatedNumber value={visitors} />
+                  </span>
                 </p>
                 <p className="text-sm font-normal whitespace-normal text-foreground/50 font-raleway">
                   Total Unique Visitors

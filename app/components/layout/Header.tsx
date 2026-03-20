@@ -4,9 +4,8 @@ import { useEffect, useRef, useState } from 'react';
 import { NAVLINKS } from '@/constants/navLinks';
 import { BurgerMenu } from '../ui/BurgerMenu';
 import { useBurgerMenu } from '@/store/store';
-import { visitorService } from '@/services/visitorService';
-import { useQuery } from '@tanstack/react-query';
 import { useLikes } from '@/hooks/useLikes';
+import { AnimatedNumber } from '../ui/AnimatedNumber';
 
 export const Header = () => {
   const { hash } = useLocation();
@@ -123,7 +122,9 @@ export const Header = () => {
           onClick={() => tougleLikes()}
         >
           <Heart size={22} filled={isLiked} />
-          <span>{likes || 0}</span>
+          <span>
+            <AnimatedNumber value={likes} duration={0.5} />
+          </span>
         </button>
 
         <button
