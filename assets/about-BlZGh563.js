@@ -1,0 +1,1 @@
+import{p as o,w as t}from"./chunk-EPOLDU6W-DhPruf_s.js";import"./firebase-DhbPNOBL.js";const e=()=>o.jsx("div",{children:"About"});function u(){return[{title:"V. Hulaievych | Portfolio"},{name:"Vitalii Hulaievych portfolio",content:"Welcome to my portfolio"}]}const a=t(function(){return o.jsx(e,{})});export{a as default,u as meta};
