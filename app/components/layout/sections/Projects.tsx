@@ -94,7 +94,7 @@ export const Projects = () => {
           {PROJECTS.map((proj, index) => (
             <div
               key={proj.id}
-              className="flex flex-col flex-none w-full p-1 overflow-hidden border h-100 sm:w-130  bg-card rounded-2xl border-border"
+              className="flex flex-col flex-none w-full p-1 overflow-hidden border h-100 sm:w-110 lg:w-130 bg-card rounded-2xl border-border"
             >
               <div className="min-h-[50%] sm:min-h-[70%] rounded-2xl overflow-hidden ">
                 <img
@@ -129,7 +129,7 @@ export const Projects = () => {
           {PROJECTS.map((proj, index) => (
             <div
               key={proj.id}
-              className="flex flex-col flex-none w-full p-1 overflow-hidden border h-130 sm:w-130  bg-card rounded-2xl border-border"
+              className="flex flex-col flex-none w-full p-1 overflow-hidden border h-100 sm:w-110 lg:w-130 bg-card rounded-2xl border-border"
             >
               <div className="min-h-[50%] sm:min-h-[70%] rounded-2xl overflow-hidden ">
                 <img
