@@ -24,7 +24,7 @@ export const HomePage = () => {
     <>
       {/* Heading Section */}
       <section
-        className="flex relative flex-col min-h-[calc(100vh-55px)] 
+        className="flex relative flex-col min-h-[calc(100vh-55px)]
                     text-center justify-center items-center z-10 w-full mx-auto px-4
                     after:absolute after:content-[''] after:w-full after:h-0.5 
                     after:bg-linear-to-r after:from-white/80 after:to-transparent 
