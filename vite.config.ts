@@ -7,6 +7,6 @@ export default defineConfig({
   plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
   css: {
     postcss: './postcss.config.js'
-  },
-  base: '/my-portfolio/'
+  }
+  // base: '/my-portfolio/'
 });
