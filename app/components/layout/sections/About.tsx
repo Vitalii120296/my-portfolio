@@ -11,7 +11,7 @@ export const About = () => {
   const [visitors, setVisitors] = useState(0);
 
   const expYears = () => {
-    const from = new Date('2024.09.01');
+    const from = new Date(2024, 8, 1);
     const to = new Date();
     let years = to.getFullYear() - from.getFullYear();
 
