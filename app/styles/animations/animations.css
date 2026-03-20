@@ -14,17 +14,17 @@
   }
 
   .animate-carousel {
-    animation: carousel 20s linear infinite;
+    animation: carousel 30s linear infinite;
   }
 
   @media (min-width: 481px) {
     .animate-carousel-sm {
-      animation: carousel 20s linear infinite !important;
+      animation: carousel 40s linear infinite !important;
     }
   }
 
   .animate-carousel-vertical {
-    animation: carousel-vertical 15s linear infinite;
+    animation: carousel-vertical 40s linear infinite;
   }
 
   .carousel-container:hover .animate-carousel,
