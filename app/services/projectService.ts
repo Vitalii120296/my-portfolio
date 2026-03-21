@@ -11,12 +11,17 @@ import {
 
 export const projectService = {
   getProjectLikes: async (): Promise<IProject[]> => {
-    const snapshot = await getDocs(collection(db, 'projects'));
-
-    return snapshot.docs.map((doc) => ({
-      id: doc.id,
-      likes: doc.data().likes as number
-    }));
+    try {
+      const snapshot = await getDocs(collection(db, 'projects'));
+      return snapshot.docs.map((doc) => ({
+        id: doc.id,
+        likes: doc.data().likes as number
+      }));
+    } catch (error) {
+      console.error('Error fetching project likes:', error);
+      // Handle the error appropriately, e.g., return an empty array or throw
+      throw error;
+    }
   },
 
   incrementProjectLike: async (id: string): Promise<IProject | null> => {
