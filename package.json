@@ -7,7 +7,8 @@
     "dev": "react-router dev",
     "start": "react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc",
-    "deploy": "gh-pages -d build/client"
+    "deploy": "gh-pages -d build/client",
+    "cubuild": "docker compose --profile dev up --build"
   },
   "dependencies": {
     "@fontsource-variable/geist": "^5.2.8",

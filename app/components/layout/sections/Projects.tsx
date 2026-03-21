@@ -88,7 +88,7 @@ export const Projects = () => {
         </p>
       </div>
       {/* Projects Carousel */}
-      <div className="relative flex flex-col items-center px-10 overflow-hidden max-h-125 sm:max-h-155 sm:flex-row pb-14 will-change-transform carousel-container">
+      <div className="relative flex flex-col items-center px-10 overflow-hidden max-h-125 sm:max-h-155 sm:flex-row pb-14 will-change-transform ">
         {/* Cards */}
         <div className="flex flex-col gap-10 pt-10 sm:py-10 max-sm:w-full sm:pr-10 sm:flex-row flex-nowrap animate-carousel-vertical animate-carousel-sm">
           {PROJECTS.map((proj, index) => (

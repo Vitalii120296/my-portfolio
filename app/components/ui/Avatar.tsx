@@ -11,7 +11,7 @@ export const Avatar: FC<Props> = ({ isBurgerMenu = false }) => {
     >
       <div className="box-border relative rounded-full bg-bgc-dark-2 wooble-circle ">
         <img
-          alt="Dickson Palomeras"
+          alt="Vitalii Hulaievych"
           width="208"
           height="208"
           decoding="async"
