@@ -46,7 +46,7 @@
     opacity: 0.3;
   }
   to {
-    transform: scale(1.45);
+    transform: scale(1.2);
     opacity: 0;
     box-shadow:
       0 0 10px white,
