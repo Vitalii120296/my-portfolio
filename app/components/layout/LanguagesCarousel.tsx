@@ -13,6 +13,7 @@ export const LanguagesCarousel = () => {
               src={href}
               alt={name}
               className="w-auto h-10 sm:h-12 opacity-80 hover:opacity-100 drop-shadow-lg"
+              loading="lazy"
             />
           </div>
         ))}
@@ -27,6 +28,7 @@ export const LanguagesCarousel = () => {
               src={href}
               alt={name}
               className="w-auto h-10 sm:h-12 opacity-80 hover:opacity-100 drop-shadow-lg"
+              loading="lazy"
             />
           </div>
         ))}

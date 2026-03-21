@@ -11,9 +11,10 @@ import type { Route } from './+types/root';
 import '@/styles/index.css';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { PreLoader } from './components/ui/PreLoader';
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,22 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const hidePreloader = () => {
+      setTimeout(() => {
+        setLoading(false);
+      }, 0);
+    };
+
+    if (document.readyState === 'complete') {
+      hidePreloader();
+    } else {
+      window.addEventListener('load', hidePreloader, { once: true });
+    }
+  }, []);
+
   return (
     <html lang="en">
       <head>
@@ -39,9 +56,44 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="theme-color" content="#2d2e32"></meta>
         <Meta />
         <Links />
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+        #preloader {
+          position: fixed;
+          inset: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: rgb(45, 46, 50);
+          z-index: 9999;
+          opacity: 1;
+          transition: opacity 0.5s;
+        }
+        #preloader .spinner {
+          width: 64px;
+          height: 64px;
+          border: 6px solid #fff;
+          border-top-color: transparent;
+          border-radius: 50%;
+          animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+          to {
+            transform: rotate(360deg);
+          }
+        }
+      `
+          }}
+        />
       </head>
       <body>
-        {children}
+        {loading && (
+          <div id="preloader">
+            <PreLoader />
+          </div>
+        )}
+        {!loading && children}
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -50,7 +102,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  const [scrolled, setScrolled] = useState(false);
+  const [_, setScrolled] = useState(false);
   const [fixedHeader, setFixedHeader] = useState(false);
 
   useEffect(() => {
@@ -76,23 +128,21 @@ export default function App() {
   }, []);
 
   return (
-    <>
-      <QueryClientProvider client={queryClient}>
-        <header
-          className={`absolute flex z-40 inset-x-0 top-0 w-full bg-background border-b border-b-border
+    <QueryClientProvider client={queryClient}>
+      <header
+        className={`absolute flex z-40 inset-x-0 top-0 w-full bg-background border-b border-b-border
           ${fixedHeader && 'fixed animate-header-appear shadow-lg'}`}
-        >
-          <Header />
-        </header>
-        <main className="flex flex-col flex-1 w-full mx-auto bg-bgc-dark-2">
-          <Outlet />
-        </main>
-        <footer className="bg-bgc-dark-2">
-          <Footer />
-        </footer>
-        <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
-    </>
+      >
+        <Header />
+      </header>
+      <main className="flex flex-col flex-1 w-full mx-auto bg-bgc-dark-2">
+        <Outlet />
+      </main>
+      <footer className="bg-bgc-dark-2">
+        <Footer />
+      </footer>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 }
 
