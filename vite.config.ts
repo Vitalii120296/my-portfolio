@@ -7,6 +7,16 @@ export default defineConfig({
   plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
   css: {
     postcss: './postcss.config.js'
+  },
+  server: {
+    host: true,
+    watch: {
+      usePolling: true
+    },
+    hmr: {
+      host: 'localhost',
+      port: 5173
+    }
   }
   // base: '/my-portfolio/'
 });

@@ -60,5 +60,9 @@ export const IMAGES: IImage[] = [
   {
     name: 'Tanstack Query',
     href: '/assets/icons/languages/tanstack.svg'
+  },
+  {
+    name: 'Zustand',
+    href: '/assets/icons/languages/zustand.svg'
   }
 ];

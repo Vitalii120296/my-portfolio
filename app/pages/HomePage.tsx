@@ -79,7 +79,6 @@ export const HomePage = () => {
             </text>
           </svg>
         </div>
-
         {/* Icons */}
         <div className="absolute inset-x-0 flex w-full h-8 mx-auto bottom-5 gap-x-12">
           <div className="relative flex justify-around w-full mx-auto max-w-125">
