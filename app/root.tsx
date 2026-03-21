@@ -11,7 +11,7 @@ import type { Route } from './+types/root';
 import '@/styles/index.css';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { PreLoader } from './components/ui/PreLoader';
@@ -35,6 +35,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
     const hidePreloader = () => {
       setTimeout(() => {
         setLoading(false);
@@ -102,7 +104,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  const [_, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [fixedHeader, setFixedHeader] = useState(false);
 
   useEffect(() => {
