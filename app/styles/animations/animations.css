@@ -7,7 +7,7 @@
     content: '';
     z-index: -1;
     position: absolute;
-    inset: 7px;
+    inset: -7px;
     border-radius: 100%;
     border: 7px solid white;
     animation: zoom-wooble 2s ease-in-out infinite;

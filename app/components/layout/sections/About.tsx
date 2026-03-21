@@ -5,7 +5,7 @@ import { db } from '@/firebase';
 import { visitorService } from '@/services/visitorService';
 import { doc, onSnapshot } from 'firebase/firestore';
 import { BookmarkAdd, BookOpen, Code, EditLine } from 'griddy-icons';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { animationAppears } from '@/constants/animations';
 
@@ -22,7 +22,7 @@ export const About = () => {
     return years;
   };
 
-  const experience = expYears();
+  const experience = useMemo(() => expYears(), []);
 
   useEffect(() => {
     visitorService.incrementVisitors();
@@ -155,7 +155,7 @@ export const About = () => {
           <div className="mb-10">
             <SmallText value="Technologies" />
             <div className="grid grid-cols-4 place-items-center gap-y-10">
-              {[...IMAGES].map(({ name, href }, i) => (
+              {IMAGES.map(({ name, href }, i) => (
                 <motion.div
                   {...animationAppears(1, 2)}
                   key={i}
