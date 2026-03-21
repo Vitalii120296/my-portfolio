@@ -1,8 +1,15 @@
+import SnowySmiles from './../../public/assets/projects/Snowy_smiles.webp';
+import ElegantBeautyStudio from './../../public/assets/projects/Elegant_beauty_studio.webp';
+import NiceGadgets from './../../public/assets/projects/niceGadgets.webp';
+import Nothing from './../../public/assets/projects/nothing.webp';
+import Game from './../../public/assets/projects/2048.webp';
+import Dia from './../../public/assets/projects/dia.webp';
+
 export const PROJECTS = [
   {
     id: 'snowy_smiles',
     name: 'Snowy Smiles (Commercial Project)',
-    img: '/assets/projects/Snowy_smiles.png',
+    img: SnowySmiles,
     description:
       'A website for a teeth whitening and dental cleaning clinic, developed as a paid client project. The goal was to create a trustworthy and modern online presence tailored to the healthcare and beauty industry.',
     link: 'https://snowysmiles.org/'
@@ -10,7 +17,7 @@ export const PROJECTS = [
   {
     id: 'elegant_beauti_studio',
     name: 'Elegant Beauty Studio (Commercial Project)',
-    img: '/assets/projects/Elegant_beauty_studio.png',
+    img: ElegantBeautyStudio,
     description:
       'A beauty salon website developed for a real client based in the United States, offering a wide range of beauty services. The project was created on a contractual basis and is actively used by the client to present services online.',
     link: 'https://elegantbeautystudio.us/'
@@ -18,7 +25,7 @@ export const PROJECTS = [
   {
     id: 'nice_gadgets',
     name: "Online store: 'Nice Gadgets'",
-    img: '/assets/projects/niceGadgets.png',
+    img: NiceGadgets,
     description:
       'An online gadget store with thoughtful cataloging, product filtering, and modern UI design. The layout is implemented following e-commerce UX principles.',
     link: 'https://vitalii120296.github.io/react_phone-catalog/'
@@ -26,7 +33,7 @@ export const PROJECTS = [
   {
     id: 'nothing',
     name: "Landing page: 'Nothing'",
-    img: '/assets/projects/nothing.png',
+    img: Nothing,
     description:
       'A landing page for the Nothing brand — with a focus on minimalism and stylish visual presentation. Responsive design and effective use of modern CSS techniques.',
     link: 'https://vitalii120296.github.io/layout_landing-page/'
@@ -34,7 +41,7 @@ export const PROJECTS = [
   {
     id: '2048_game',
     name: '2048 game',
-    img: '/assets/projects/2048.png',
+    img: Game,
     description:
       'Implementation of the popular 2048 game using pure JavaScript. Includes tile merging logic, win/loss states, and a responsive and user-friendly interface.',
     link: 'https://vitalii120296.github.io/js_2048_game/'
@@ -42,7 +49,7 @@ export const PROJECTS = [
   {
     id: 'dia',
     name: "Landing page: 'Dia'",
-    img: '/assets/projects/dia.png',
+    img: Dia,
     description:
       'A single-page website for a strategic consulting agency. Clean design, responsive layout, and modern, maintainable code.',
     link: 'https://vitalii120296.github.io/layout_dia/'
