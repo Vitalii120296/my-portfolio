@@ -101,6 +101,7 @@ export const Projects = () => {
                   src={proj.img}
                   alt={proj.name}
                   className="object-cover w-full rounded-2xl"
+                  loading="lazy"
                 />
               </div>
               <div className="flex flex-col h-full gap-1 px-4 py-2">
@@ -136,6 +137,7 @@ export const Projects = () => {
                   src={proj.img}
                   alt={proj.name}
                   className="object-cover w-full rounded-2xl"
+                  loading="lazy"
                 />
               </div>
               <div className="flex flex-col h-full gap-1 px-4 py-2">

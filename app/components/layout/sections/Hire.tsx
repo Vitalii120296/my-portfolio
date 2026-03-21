@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import type { IForm } from '@/types/types';
 import type { SubmitHandler } from 'react-hook-form';
 import { animationAppears } from '@/constants/animations';
+import { Spinner } from '@/components/ui/spinner';
 
 export const Hire = () => {
   const { register, handleSubmit, watch, reset, formState } = useForm<IForm>({
@@ -157,8 +158,8 @@ export const Hire = () => {
               <p className="text-xs text-red">{errors.message.message}</p>
             )}
           </div>
-          <Button variant="wide" disabled={!isValid}>
-            {isSending ? 'Sending...' : 'Send message'}
+          <Button variant="wide" disabled={!isValid || isSending}>
+            {isSending ? <Spinner className="w-full" /> : 'Send message'}
           </Button>
           {isError && <p className="text-xs text-red">{`${isError}`}</p>}
           {isSended && (

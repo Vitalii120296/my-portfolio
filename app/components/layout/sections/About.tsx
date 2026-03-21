@@ -165,6 +165,7 @@ export const About = () => {
                     src={href}
                     alt={name}
                     className="object-contain h-12 transition-all linear duration-300  opacity-60 hover:opacity-100"
+                    loading="lazy"
                   />
                   <span className="mt-3 text-xs text-center text-accent">
                     {name}
