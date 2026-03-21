@@ -6,6 +6,8 @@ import { visitorService } from '@/services/visitorService';
 import { doc, onSnapshot } from 'firebase/firestore';
 import { BookmarkAdd, BookOpen, Code, EditLine } from 'griddy-icons';
 import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { animationAppears } from '@/constants/animations';
 
 export const About = () => {
   const [visitors, setVisitors] = useState(0);
@@ -44,7 +46,7 @@ export const About = () => {
       <div className="flex flex-col gap-10 md:flex-row gap-x-10 lg:gap-x-30">
         <div className="md:w-1/2">
           {/* Introduction */}
-          <div className="mb-10">
+          <motion.div {...animationAppears(1)} className="mb-10">
             <div>
               <SmallText value="Introduction" />
             </div>
@@ -74,12 +76,12 @@ export const About = () => {
                 for excellence in every project.
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Main Skils */}
           <div className="mb-6 [&>div]:mb-2">
             <SmallText value="Main Skills" />
-            <div className="relative">
+            <motion.div {...animationAppears(1)} className="relative">
               <div className="px-6 py-5 bg-background rounded-xl">
                 <h4 className="text-xl leading-tight tracking-wide text-accent">
                   React Engineering
@@ -92,8 +94,8 @@ export const About = () => {
                   <Code size={24} />
                 </span>
               </div>
-            </div>
-            <div className="relative">
+            </motion.div>
+            <motion.div {...animationAppears(2)} className="relative">
               <div className="px-6 py-5 bg-background rounded-xl">
                 <h4 className="text-xl leading-tight tracking-wide text-accent">
                   UI/UX & Design Systems
@@ -106,14 +108,17 @@ export const About = () => {
                   <EditLine size={24} />
                 </span>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Education & Certifications */}
           <div className="mb-6 [&>div]:mb-2">
             <SmallText value="Education & Certifications" />
             <div className="relative">
-              <div className="px-6 py-5 bg-background rounded-xl">
+              <motion.div
+                {...animationAppears(1)}
+                className="px-6 py-5 bg-background rounded-xl"
+              >
                 <h4 className="text-xl leading-tight tracking-wide text-accent">
                   Chervonohrad Mining and Economic College
                 </h4>
@@ -126,9 +131,9 @@ export const About = () => {
                 <span className="absolute right-6 top-5 text-accent">
                   <BookOpen size={24} />
                 </span>
-              </div>
+              </motion.div>
             </div>
-            <div className="relative">
+            <motion.div {...animationAppears(2)} className="relative">
               <div className="px-6 py-5 bg-background rounded-xl">
                 <h4 className="text-xl leading-tight tracking-wide text-accent">
                   Mate academy
@@ -141,7 +146,7 @@ export const About = () => {
                   <BookmarkAdd size={24} />
                 </span>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
 
@@ -151,20 +156,20 @@ export const About = () => {
             <SmallText value="Technologies" />
             <div className="grid grid-cols-4 place-items-center gap-y-10">
               {[...IMAGES].map(({ name, href }, i) => (
-                <div
+                <motion.div
+                  {...animationAppears(0.2, 2)}
                   key={i}
-                  className="flex flex-col px-3 transition-all duration-300 ease-in-out shrink-0 w-fulw opacity-70 hover:opacity-100 drop-shadow-lg not-hover:grayscale cursor-cool"
+                  className="flex flex-col px-3 shrink-0 w-fulw drop-shadow-lg not-hover:grayscale"
                 >
                   <img
                     src={href}
                     alt={name}
-                    className="object-contain h-12 transition-all"
-                    loading="lazy"
+                    className="object-contain h-12 transition-all linear duration-300  opacity-60 hover:opacity-100"
                   />
                   <span className="mt-3 text-xs text-center text-accent">
                     {name}
                   </span>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>

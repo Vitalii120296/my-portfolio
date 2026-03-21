@@ -9,6 +9,8 @@ import { MyCv } from '@/components/layout/sections/MyCv';
 import { Hire } from '@/components/layout/sections/Hire';
 import { Avatar } from '@/components/ui/Avatar';
 import { Testimonials } from '@/components/layout/sections/Testimonials';
+import { motion } from 'framer-motion';
+import { animationAppears } from '@/constants/animations';
 
 export const HomePage = () => {
   useScrollSpy([
@@ -32,27 +34,30 @@ export const HomePage = () => {
         aria-label="Introduction and overview of my skills and experience"
         id="home"
       >
-        <Avatar />
+        <motion.div {...animationAppears(1)}>
+          <Avatar />
+        </motion.div>
         <div className="flex flex-col gap-4 mx-auto max-w-125">
-          <div>
+          <motion.div {...animationAppears(2)}>
             <span className="inline-flex px-3 py-1.5 bg-bgc-gray rounded-full border-border border text-sm leading-none">
               React Engineer
             </span>
-          </div>
-          <div className="">
+          </motion.div>
+          <motion.div {...animationAppears(3)}>
             <h1 className="flex text-4xl leading-tight">
               Talk is cheap.
               <br />
               Show me the code.
             </h1>
-          </div>
-          <div>
+          </motion.div>
+
+          <motion.div {...animationAppears(4)}>
             <p className="inline-flex text-sm leading-relaxed text-foreground/50">
               I design and code beautifully simple things,
               <br /> and I love what I do.
             </p>
-          </div>
-          <div className="flex gap-4 pt-10">
+          </motion.div>
+          <motion.div {...animationAppears(5)} className="flex gap-4 pt-10">
             <a
               className="cursor-pointer"
               href="/CV/CV_Vitalii Hulaievych_FE.pdf"
@@ -63,7 +68,7 @@ export const HomePage = () => {
             <Link to="#projects">
               <Button variant="secondary">My Projects</Button>
             </Link>
-          </div>
+          </motion.div>
         </div>
         {/* Backgrond */}
         <div className="absolute inset-0 grid place-items-center z-[-1] pointer-events-none select-none">

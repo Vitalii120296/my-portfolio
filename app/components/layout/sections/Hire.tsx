@@ -1,8 +1,10 @@
 import { Button } from '@/components/ui/Button';
-import type { IForm } from '@/types/types';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { motion } from 'framer-motion';
+import type { IForm } from '@/types/types';
 import type { SubmitHandler } from 'react-hook-form';
+import { animationAppears } from '@/constants/animations';
 
 export const Hire = () => {
   const { register, handleSubmit, watch, reset, formState } = useForm<IForm>({
@@ -60,11 +62,17 @@ export const Hire = () => {
       id="contacts"
       aria-label="Contact me for work opportunities"
     >
-      <h1 className="mb-4 text-3xl font-bold tracking-wide text-center title-underline md:text-5xl">
+      <motion.h1
+        {...animationAppears()}
+        className="mb-4 text-3xl font-bold tracking-wide text-center title-underline md:text-5xl"
+      >
         HIRE ME
-      </h1>
+      </motion.h1>
       <div>
-        <p className="max-w-lg mx-auto mb-10 text-sm font-light tracking-wide text-center text-foreground/55 max-md:px-5 md:mb-14">
+        <motion.p
+          {...animationAppears(2)}
+          className="max-w-lg mx-auto mb-10 text-sm font-light tracking-wide text-center text-foreground/55 max-md:px-5 md:mb-14"
+        >
           I'm open to full-time, part-time, and freelance opportunities. Feel
           free to reach out—I'd love to connect and discuss how we can work
           together. You can contact me through this form or via email:
@@ -75,10 +83,11 @@ export const Hire = () => {
           >
             v.hulaievych@gmail.com
           </a>
-        </p>
+        </motion.p>
       </div>
       <div>
-        <form
+        <motion.form
+          {...animationAppears(3)}
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col max-w-lg gap-4 mx-auto"
         >
@@ -155,7 +164,7 @@ export const Hire = () => {
           {isSended && (
             <p className="text-xs text-green-500">{`Your message has been sent successfully.`}</p>
           )}
-        </form>
+        </motion.form>
       </div>
     </section>
   );
