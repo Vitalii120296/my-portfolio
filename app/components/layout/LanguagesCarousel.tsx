@@ -3,7 +3,7 @@ import { IMAGES } from '@/constants/images';
 export const LanguagesCarousel = () => {
   return (
     <div className="relative flex flex-row w-full py-8 overflow-hidden carousel-container will-change-transform">
-      <div className="flex shrink-0 animate-carousel">
+      <div className="flex shrink-0 animate-carousel will-change-transform">
         {[...IMAGES].map(({ name, href }, i) => (
           <div
             key={i}
@@ -18,7 +18,7 @@ export const LanguagesCarousel = () => {
           </div>
         ))}
       </div>
-      <div className="flex shrink-0 animate-carousel">
+      <div className="flex shrink-0 animate-carousel will-change-transform">
         {[...IMAGES].map(({ name, href }, i) => (
           <div
             key={i}
