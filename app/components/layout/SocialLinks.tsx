@@ -4,14 +4,14 @@ import { Tooltip } from '../ui/Tooltip';
 export const SocialLinks = () => {
   return (
     <>
-      <div className="w-8 h-8 relative [&>a]:opacity-30 [&>a:hover]:opacity-100 hover:[&>div]:opacity-100 hover:[&>div]:scale-100">
+      <div className="relative w-8 h-8 group ">
         <a
-          className="transition-all duration-300"
+          className="transition-all duration-300 opacity-30 hover:opacity-100"
           href="https://www.facebook.com/v.hulaievych"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <svg fill="#000000" viewBox="0 0 128 128" className="">
+          <svg fill="#000000" viewBox="0 0 128 128">
             <rect width="128" height="128" rx="15" fill="white"></rect>
             <path
               fill="black"
@@ -22,14 +22,14 @@ export const SocialLinks = () => {
 
         <Tooltip value="Facebook" />
       </div>
-      <div className="w-8 h-8 relative [&>a]:opacity-30 [&>a:hover]:opacity-100 hover:[&>div]:opacity-100 hover:[&>div]:scale-100">
+      <div className="relative w-8 h-8 group ">
         <a
-          className="transition-all duration-300"
+          className="transition-all duration-300 opacity-30 hover:opacity-100"
           href="http://www.linkedin.com/in/vitalii-hulaievych-6a623b349"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <svg fill="#000000" viewBox="0 0 128 128" className="">
+          <svg fill="#000000" viewBox="0 0 128 128">
             <rect width="128" height="128" rx="15" fill="white"></rect>
             <path
               fill="black"
@@ -39,14 +39,14 @@ export const SocialLinks = () => {
         </a>
         <Tooltip value="Linked In" />
       </div>
-      <div className="w-8 h-8 relative [&>a]:opacity-30 [&>a:hover]:opacity-100 hover:[&>div]:opacity-100 hover:[&>div]:scale-100">
+      <div className="relative w-8 h-8 group ">
         <a
-          className="transition-all duration-300"
+          className="transition-all duration-300 opacity-30 hover:opacity-100"
           href="https://github.com/Vitalii120296"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <svg fill="#000000" viewBox="0 0 128 128" className="">
+          <svg fill="#000000" viewBox="0 0 128 128">
             <rect width="128" height="128" rx="15" fill="white"></rect>
             <path
               fill="black"

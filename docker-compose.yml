@@ -1,7 +1,7 @@
 services:
-  dev:
+  portfolio:
     image: node:22-alpine
-    container_name: portfolio_dev
+    container_name: portfolio_app
     working_dir: /app
     volumes:
       - .:/app
@@ -9,11 +9,3 @@ services:
     ports:
       - '5173:5173'
     command: sh -c "npm ci && npm run dev -- --host"
-    profiles: ['dev']
-
-  prod:
-    build: .
-    container_name: portfolio_prod
-    ports:
-      - '5173:80'
-    profiles: ['prod']
