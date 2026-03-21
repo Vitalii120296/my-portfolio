@@ -12,7 +12,6 @@ export const Projects = () => {
   const { data, addLike, removeLike } = useProjects();
   const [likedProject, setLikedProject] = useState<ILikedProjects[]>([]);
 
-  console.log(likedProject);
   const isLiked = (id: string) => likedProject.some((p) => p.id === id);
 
   useEffect(() => {
