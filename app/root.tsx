@@ -40,7 +40,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
     const hidePreloader = () => {
       setTimeout(() => {
         setLoading(false);
-      }, 0);
+      }, 500);
     };
 
     if (document.readyState === 'complete') {
@@ -71,19 +71,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
           z-index: 9999;
           opacity: 1;
           transition: opacity 0.5s;
-        }
-        #preloader .spinner {
-          width: 64px;
-          height: 64px;
-          border: 6px solid #fff;
-          border-top-color: transparent;
-          border-radius: 50%;
-          animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-          to {
-            transform: rotate(360deg);
-          }
         }
       `
           }}
