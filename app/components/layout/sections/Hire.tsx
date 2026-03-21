@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import type { IForm } from '@/types/types';
 import type { SubmitHandler } from 'react-hook-form';
 import { animationAppears } from '@/constants/animations';
-import { Spinner } from '@/components/ui/spinner';
+import { Spinner } from '@/components/ui/Spinner';
 
 export const Hire = () => {
   const { register, handleSubmit, watch, reset, formState } = useForm<IForm>({
