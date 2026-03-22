@@ -1,6 +1,6 @@
 import { AnimatedNumber } from '@/components/ui/AnimatedNumber';
 import { SmallText } from '@/components/ui/SmallText';
-import { IMAGES } from '@/constants/images';
+import { LANGUAGE_IMAGES } from '@/constants/languageImages';
 import { db } from '@/firebase';
 import { visitorService } from '@/services/visitorService';
 import { doc, onSnapshot } from 'firebase/firestore';
@@ -155,7 +155,7 @@ export const About = () => {
           <div className="mb-10">
             <SmallText value="Technologies" />
             <div className="grid grid-cols-4 place-items-center gap-y-10">
-              {IMAGES.map(({ name, href }, i) => (
+              {LANGUAGE_IMAGES.map(({ name, href }, i) => (
                 <motion.div
                   {...animationAppears(1, 2)}
                   key={i}

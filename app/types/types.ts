@@ -13,3 +13,8 @@ export interface IProject {
   id: string;
   likes: number;
 }
+
+export interface ISocialLinks {
+  href: string;
+  component: React.ReactNode;
+}
