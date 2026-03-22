@@ -60,7 +60,7 @@ export const HomePage = () => {
           <motion.div {...animationAppears(5)} className="flex gap-4 pt-10">
             <a
               className="cursor-pointer"
-              href="/CV/CV_Vitalii Hulaievych_FE.pdf"
+              href="/CV/Vitalii_Hulaievych_CV_FE.pdf"
               download
             >
               <Button variant="primary">Download CV</Button>
