@@ -99,7 +99,7 @@ export const Projects = () => {
                 <img
                   src={proj.img}
                   alt={proj.name}
-                  className="object-cover w-full rounded-2xl"
+                  className="object-cover w-full rounded-2xl hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
               </div>
@@ -135,7 +135,7 @@ export const Projects = () => {
                 <img
                   src={proj.img}
                   alt={proj.name}
-                  className="object-cover w-full rounded-2xl"
+                  className="object-cover w-full rounded-2xl hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
               </div>
