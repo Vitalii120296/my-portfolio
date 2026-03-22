@@ -106,6 +106,7 @@ export const Projects = () => {
               <div className="flex flex-col h-full gap-1 px-4 py-2">
                 <div className="flex justify-between ">
                   <a
+                    target="_blank"
                     href={proj.link}
                     className="font-semibold tracking-wider underline"
                   >
@@ -147,6 +148,7 @@ export const Projects = () => {
               <div className="flex flex-col h-full gap-1 px-4 py-2">
                 <div className="flex justify-between ">
                   <a
+                    target="_blank"
                     href={proj.link}
                     className="font-semibold tracking-wider underline"
                   >
