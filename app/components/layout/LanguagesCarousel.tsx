@@ -1,4 +1,4 @@
-import { IMAGES } from '@/constants/images';
+import { LANGUAGE_IMAGES } from '@/constants/languageImages';
 import React, { useEffect, useState } from 'react';
 
 export const LanguagesCarousel = () => {
@@ -6,7 +6,7 @@ export const LanguagesCarousel = () => {
   const [allLoaded, setAllLoaded] = useState(false);
 
   useEffect(() => {
-    if (loadedCount === IMAGES.length) {
+    if (loadedCount === LANGUAGE_IMAGES.length) {
       setAllLoaded(true);
     }
   }, [loadedCount]);
@@ -14,7 +14,7 @@ export const LanguagesCarousel = () => {
   return (
     <div className="relative flex flex-row w-full py-8 overflow-hidden carousel-container will-change-transform">
       <div className={`flex shrink-0 ${allLoaded ? 'animate-carousel' : ''}`}>
-        {IMAGES.map(({ name, href }, i) => (
+        {LANGUAGE_IMAGES.map(({ name, href }, i) => (
           <div
             key={name + 'first'}
             className="px-6 transition-all duration-300 shrink-0 hover:scale-110 not-hover:opacity-70"
@@ -29,7 +29,7 @@ export const LanguagesCarousel = () => {
         ))}
       </div>
       <div className={`flex shrink-0 ${allLoaded ? 'animate-carousel' : ''}`}>
-        {IMAGES.map(({ name, href }, i) => (
+        {LANGUAGE_IMAGES.map(({ name, href }, i) => (
           <div
             key={name + 'seccond'}
             className="px-6 transition-all duration-300 shrink-0 hover:scale-110 not-hover:opacity-70"

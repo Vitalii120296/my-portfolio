@@ -94,7 +94,8 @@ export const Hire = () => {
         >
           <div className="flex flex-col gap-2">
             <label htmlFor="name" className="text-foreground">
-              Name
+              {`Name `}
+              <span className="text-red text-xl">*</span>
             </label>
             <input
               className={`px-4 py-2 text-foreground border rounded-md bg-background focus:border-accent outline-0 ${errors.name ? 'border-red' : 'border-border'}`}
@@ -119,7 +120,8 @@ export const Hire = () => {
           </div>
           <div className="flex flex-col gap-2">
             <label htmlFor="email" className="text-foreground">
-              Email
+              {`Email `}
+              <span className="text-red text-xl">*</span>
             </label>
             <input
               className={`px-4 py-2 text-foreground border rounded-md bg-background  focus:border-accent outline-0 ${errors.email ? 'border-red' : 'border-border'}`}
@@ -140,7 +142,8 @@ export const Hire = () => {
           </div>
           <div className="flex flex-col gap-2">
             <label htmlFor="message" className="text-foreground">
-              Message
+              {`Message `}
+              <span className="text-red text-xl">*</span>
             </label>
             <textarea
               className={`px-4 py-2 text-foreground border rounded-md resize-none h-30 bg-background focus:border-accent outline-0 ${errors.message ? 'border-red' : 'border-border'}`}
