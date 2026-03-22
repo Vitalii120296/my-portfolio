@@ -99,13 +99,19 @@ export const Projects = () => {
                 <img
                   src={proj.img}
                   alt={proj.name}
-                  className="object-cover w-full rounded-2xl hover:scale-105 transition-transform duration-300"
+                  className="object-cover w-full transition-transform duration-300 rounded-2xl hover:scale-105"
                   loading="lazy"
                 />
               </div>
               <div className="flex flex-col h-full gap-1 px-4 py-2">
                 <div className="flex justify-between ">
-                  <p className="font-semibold">{proj.name}</p>
+                  <a
+                    target="_blank"
+                    href={proj.link}
+                    className="font-semibold tracking-wider underline"
+                  >
+                    {proj.name}
+                  </a>
                   <button
                     className="flex items-center gap-1 text-red"
                     onClick={() => {
@@ -135,13 +141,19 @@ export const Projects = () => {
                 <img
                   src={proj.img}
                   alt={proj.name}
-                  className="object-cover w-full rounded-2xl hover:scale-105 transition-transform duration-300"
+                  className="object-cover w-full transition-transform duration-300 rounded-2xl hover:scale-105"
                   loading="lazy"
                 />
               </div>
               <div className="flex flex-col h-full gap-1 px-4 py-2">
                 <div className="flex justify-between ">
-                  <p className="font-semibold">{proj.name}</p>
+                  <a
+                    target="_blank"
+                    href={proj.link}
+                    className="font-semibold tracking-wider underline"
+                  >
+                    {proj.name}
+                  </a>
                   <button
                     className="flex items-center gap-1 text-red"
                     onClick={() => {
