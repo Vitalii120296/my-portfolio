@@ -13,14 +13,7 @@ import { motion } from 'framer-motion';
 import { animationAppears } from '@/constants/animations';
 
 export const HomePage = () => {
-  useScrollSpy([
-    'home',
-    'carousel',
-    'about',
-    'projects',
-    'testimonials',
-    'contacts'
-  ]);
+  useScrollSpy(['home', 'about', 'projects', 'testimonials', 'contacts']);
 
   return (
     <>
