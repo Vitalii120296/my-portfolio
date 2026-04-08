@@ -1,5 +1,4 @@
 import { Button } from '@/components/ui/Button';
-import React from 'react';
 
 export const MyCv = () => {
   return (
@@ -30,7 +29,7 @@ export const MyCv = () => {
         <div>
           <a
             className="cursor-pointer"
-            href="/CV/CV_Vitalii_Hulaievych_FE.pdf"
+            href="/CV/CV_FE_Vitalii_Hulaievych.pdf"
             download
           >
             <Button variant="primary">Download CV</Button>
