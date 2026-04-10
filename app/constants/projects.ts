@@ -4,8 +4,17 @@ import NiceGadgets from './../../public/assets/projects/niceGadgets.webp';
 import Nothing from './../../public/assets/projects/nothing.webp';
 import Game from './../../public/assets/projects/2048.webp';
 import Dia from './../../public/assets/projects/dia.webp';
+import FlowCRM from './../../public/assets/projects/flow_crm.webp';
 
 export const PROJECTS = [
+  {
+    id: 'flow_crm',
+    name: 'Flow CRM',
+    img: FlowCRM,
+    description:
+      ' A CRM system designed for small businesses, developed as a commercial project. The application includes features such as contact management, sales tracking, and customer interaction history. It is built with a focus on user experience and efficient workflow management.',
+    link: 'https://next-crm-app-one.vercel.app/'
+  },
   {
     id: 'snowy_smiles',
     name: 'Snowy Smiles (Commercial Project)',
