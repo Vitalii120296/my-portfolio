@@ -8,6 +8,7 @@ import { BookmarkAdd, BookOpen, Code, EditLine } from 'griddy-icons';
 import { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { animationAppears } from '@/constants/animations';
+import { PROJECTS } from '@/constants/projects';
 
 export const About = () => {
   const [visitors, setVisitors] = useState(0);
@@ -33,6 +34,8 @@ export const About = () => {
 
     return () => unsub();
   }, []);
+
+  const totalProjects = PROJECTS.length + 1;
 
   return (
     <section
@@ -182,7 +185,7 @@ export const About = () => {
               <div className="flex flex-col w-full gap-2 text-5xl font-bold text-center md:text-3xl lg:text-5xl">
                 <p className="text-accent ">
                   <span className="text-foreground ">
-                    <AnimatedNumber value={7} />
+                    <AnimatedNumber value={totalProjects} />
                   </span>
                   {'+'}
                 </p>
