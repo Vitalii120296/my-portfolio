@@ -19,7 +19,7 @@ export const HomePage = () => {
     <>
       {/* Heading Section */}
       <section
-        className="flex relative flex-col min-h-[calc(100vh)]
+        className="flex relative flex-col h-[calc(100vh)] min-h-200
                     text-center justify-center items-center z-10 w-full mx-auto px-4
                     after:absolute after:content-[''] after:w-full after:h-0.5 
                     after:bg-linear-to-r after:from-white/80 after:to-transparent 
@@ -27,7 +27,7 @@ export const HomePage = () => {
         aria-label="Introduction and overview of my skills and experience"
         id="home"
       >
-        <motion.div {...animationAppears(1)}>
+        <motion.div {...animationAppears(1)} className="hidden md:block">
           <Avatar />
         </motion.div>
         <div className="flex flex-col gap-4 mx-auto max-w-125">
@@ -53,7 +53,7 @@ export const HomePage = () => {
           <motion.div {...animationAppears(5)} className="flex gap-4 pt-10">
             <a
               className="cursor-pointer"
-              href="/CV/CV_FE_Vitalii_Hulaievych.pdf"
+              href="/CV/FE_Vitalii_Hulaievych_CV.pdf"
               download
             >
               <Button variant="primary">Download CV</Button>
