@@ -56,8 +56,9 @@ export const useAnimations = () => {
           duration: 0.7,
           scrollTrigger: {
             trigger: `[data-id="${dataId}"]`,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse'
+            start: 'top 90%',
+            toggleActions: 'play none none reverse',
+            markers: true
           }
         })
       };
@@ -79,7 +80,7 @@ export const useAnimations = () => {
           duration: 0.7,
           scrollTrigger: {
             trigger: `[data-id="${dataId}"]`,
-            start: 'top 80%',
+            start: 'top 90%',
             toggleActions: 'play none none reverse'
           }
         }
