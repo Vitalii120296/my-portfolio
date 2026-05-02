@@ -1,19 +1,28 @@
 import { Button } from '@/components/ui/Button';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { motion } from 'framer-motion';
 import type { IForm } from '@/types/types';
 import type { SubmitHandler } from 'react-hook-form';
-import { animationAppears } from '@/constants/animations';
 import { Spinner } from '@/components/ui/Spinner';
+import { useAnimations } from '@/hooks/useAnimations';
+import gsap from 'gsap';
 
 export const Hire = () => {
+  const { fadeInScroll, fadeInTitle } = useAnimations();
   const { register, handleSubmit, watch, reset, formState } = useForm<IForm>({
     mode: 'onChange'
   });
   const [isSending, setIsSending] = useState(false);
   const [isError, setIsError] = useState<string | null>(null);
   const [isSended, setIsSended] = useState(false);
+
+  useEffect(() => {
+    const { from, to } = fadeInScroll();
+    fadeInTitle('headingHire');
+
+    gsap.fromTo('[data-id="subheadingHire"]', from, to('subheadingHire'));
+    gsap.fromTo('[data-id="contactForm"]', from, to('contactForm'));
+  }, []);
 
   const { errors, isValid } = formState;
 
@@ -63,15 +72,15 @@ export const Hire = () => {
       id="contacts"
       aria-label="Contact me for work opportunities"
     >
-      <motion.h1
-        {...animationAppears()}
+      <h1
+        data-id="headingHire"
         className="mb-4 text-3xl font-bold tracking-wide text-center title-underline md:text-5xl"
       >
         HIRE ME
-      </motion.h1>
+      </h1>
       <div>
-        <motion.p
-          {...animationAppears(2)}
+        <p
+          data-id="subheadingHire"
           className="max-w-lg mx-auto mb-10 text-sm font-light tracking-wide text-center text-foreground/55 max-md:px-5 md:mb-14"
         >
           I'm open to full-time, part-time, and freelance opportunities. Feel
@@ -84,11 +93,11 @@ export const Hire = () => {
           >
             v.hulaievych@gmail.com
           </a>
-        </motion.p>
+        </p>
       </div>
       <div>
-        <motion.form
-          {...animationAppears(3)}
+        <form
+          data-id="contactForm"
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col max-w-lg gap-4 mx-auto"
         >
@@ -168,7 +177,7 @@ export const Hire = () => {
           {isSended && (
             <p className="text-xs text-green-500">{`Your message has been sent successfully.`}</p>
           )}
-        </motion.form>
+        </form>
       </div>
     </section>
   );

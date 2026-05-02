@@ -6,12 +6,13 @@ import { visitorService } from '@/services/visitorService';
 import { doc, onSnapshot } from 'firebase/firestore';
 import { BookmarkAdd, BookOpen, Code, EditLine } from 'griddy-icons';
 import { useEffect, useMemo, useState } from 'react';
-import { motion } from 'framer-motion';
-import { animationAppears } from '@/constants/animations';
 import { PROJECTS } from '@/constants/projects';
+import gsap from 'gsap';
+import { useAnimations } from '@/hooks/useAnimations';
 
 export const About = () => {
   const [visitors, setVisitors] = useState(0);
+  const { fadeInTitle, fadeInScroll, fadeInTechnologies } = useAnimations();
 
   const expYears = () => {
     const from = new Date(2024, 8, 1);
@@ -35,24 +36,46 @@ export const About = () => {
     return () => unsub();
   }, []);
 
+  const { from, to } = fadeInScroll();
+
+  useEffect(() => {
+    fadeInTitle('headingAbout');
+
+    gsap.fromTo('[data-id="introduction"]', from, to('introduction'));
+    gsap.fromTo('[data-id="mainSkills1"]', from, to('mainSkills1'));
+    gsap.fromTo('[data-id="mainSkills2"]', from, to('mainSkills2'));
+    gsap.fromTo('[data-id="education1"]', from, to('education1'));
+    gsap.fromTo('[data-id="education2"]', from, to('education2'));
+    gsap.fromTo('[data-id="metrics"]', from, to('metrics'));
+
+    LANGUAGE_IMAGES.forEach((_, index) => {
+      const { from, to } = fadeInTechnologies(`language-${index}`);
+      gsap.fromTo(`[data-id="language-${index}"]`, from, to);
+    });
+  }, []);
+
   const totalProjects = PROJECTS.length + 1;
 
   return (
     <section
+      data-id="aboutSection"
       className="flex flex-col w-full px-5 mx-auto lg:px-10 pt-15 md:pt-32 max-w-desktop"
       id="about"
       aria-label="Detailed information about my background, skills, education, and technologies I work with"
     >
-      <h1 className="mb-10 text-3xl font-bold tracking-wide text-center title-underline md:mb-14 md:text-5xl">
+      <h1
+        data-id="headingAbout"
+        className="mb-10 text-3xl font-bold tracking-wide text-center title-underline md:mb-14 md:text-5xl"
+      >
         ABOUT
       </h1>
       <div className="flex flex-col gap-10 md:flex-row gap-x-10 lg:gap-x-30">
         <div className="md:w-1/2">
           {/* Introduction */}
-          <motion.div {...animationAppears(1)} className="mb-10">
-            <div>
-              <SmallText value="Introduction" />
-            </div>
+          <div>
+            <SmallText value="Introduction" />
+          </div>
+          <div data-id="introduction" className="mb-10">
             <div className="">
               <h2 className="text-2xl leading-tight md:text-4xl">
                 👋Hi, I'm{' '}
@@ -79,12 +102,12 @@ export const About = () => {
                 for excellence in every project.
               </p>
             </div>
-          </motion.div>
+          </div>
 
           {/* Main Skils */}
           <div className="mb-6 [&>div]:mb-2">
             <SmallText value="Main Skills" />
-            <motion.div {...animationAppears(1)} className="relative">
+            <div data-id="mainSkills1" className="relative">
               <div className="px-6 py-5 bg-background rounded-xl">
                 <h4 className="text-xl leading-tight tracking-wide text-accent">
                   React Engineering
@@ -97,8 +120,8 @@ export const About = () => {
                   <Code size={24} />
                 </span>
               </div>
-            </motion.div>
-            <motion.div {...animationAppears(2)} className="relative">
+            </div>
+            <div data-id="mainSkills2" className="relative">
               <div className="px-6 py-5 bg-background rounded-xl">
                 <h4 className="text-xl leading-tight tracking-wide text-accent">
                   UI/UX & Design Systems
@@ -111,15 +134,15 @@ export const About = () => {
                   <EditLine size={24} />
                 </span>
               </div>
-            </motion.div>
+            </div>
           </div>
 
           {/* Education & Certifications */}
           <div className="mb-6 [&>div]:mb-2">
             <SmallText value="Education & Certifications" />
             <div className="relative">
-              <motion.div
-                {...animationAppears(1)}
+              <div
+                data-id="education1"
                 className="px-6 py-5 bg-background rounded-xl"
               >
                 <h4 className="text-xl leading-tight tracking-wide text-accent">
@@ -134,9 +157,9 @@ export const About = () => {
                 <span className="absolute right-6 top-5 text-accent">
                   <BookOpen size={24} />
                 </span>
-              </motion.div>
+              </div>
             </div>
-            <motion.div {...animationAppears(2)} className="relative">
+            <div data-id="education2" className="relative">
               <div className="px-6 py-5 bg-background rounded-xl">
                 <h4 className="text-xl leading-tight tracking-wide text-accent">
                   Mate academy
@@ -149,7 +172,7 @@ export const About = () => {
                   <BookmarkAdd size={24} />
                 </span>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
 
@@ -159,8 +182,8 @@ export const About = () => {
             <SmallText value="Technologies" />
             <div className="grid grid-cols-4 place-items-center gap-y-10">
               {LANGUAGE_IMAGES.map(({ name, href }, i) => (
-                <motion.div
-                  {...animationAppears(1, 2)}
+                <div
+                  data-id={`language-${i}`}
                   key={i}
                   className="flex flex-col px-3 shrink-0 w-fulw drop-shadow-lg not-hover:grayscale"
                 >
@@ -173,13 +196,13 @@ export const About = () => {
                   <span className="mt-3 text-xs text-center text-accent">
                     {name}
                   </span>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
 
           {/* Metrics  */}
-          <div className="mb-10">
+          <div className="mb-10" data-id="metrics">
             <SmallText value="Metrics" />
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 font-geist">
               <div className="flex flex-col w-full gap-2 text-5xl font-bold text-center md:text-3xl lg:text-5xl">

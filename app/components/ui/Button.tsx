@@ -28,7 +28,7 @@ export const Button: React.FC<Props> = ({
       disabled={disabled}
       onClick={onClick}
       className={`px-6  items-center justify-center whitespace-nowrap leading-5 py-2 
-          transition-all duration-300 active:scale-110 font-medium ${variantStyles[variant]} ${disabled && 'bg-white/30!'}`}
+          transition-all duration-300 hover:scale-105 hover:shadow-md hover:shadow-accent active:scale-110 font-medium ${variantStyles[variant]} ${disabled && 'bg-white/30!'}`}
     >
       {children}
     </button>

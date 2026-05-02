@@ -9,12 +9,44 @@ import { MyCv } from '@/components/layout/sections/MyCv';
 import { Hire } from '@/components/layout/sections/Hire';
 import { Avatar } from '@/components/ui/Avatar';
 import { Testimonials } from '@/components/layout/sections/Testimonials';
-import { motion } from 'framer-motion';
-import { animationAppears } from '@/constants/animations';
+import { useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger, SplitText } from 'gsap/all';
+import { useAnimations } from '@/hooks/useAnimations';
 
 export const HomePage = () => {
   useScrollSpy(['home', 'about', 'projects', 'testimonials', 'contacts']);
+  const { fadeIn } = useAnimations();
+  const { from, to } = fadeIn();
 
+  useEffect(() => {
+    const tl = gsap.timeline({ defaults: { ease: 'power1.out' } });
+    let split = SplitText.create('[data-id="heading"]', {
+      type: 'chars, words, lines'
+    });
+
+    tl.fromTo('[data-id="avatar"]', from, to)
+      .fromTo('[data-id="chip"]', from, to)
+      .fromTo('[data-id="subheading"]', from, to)
+      .fromTo('[data-id="buttons"]', from, to);
+
+    gsap.from(split.chars, {
+      opacity: 0,
+      y: 20,
+      x: 20,
+      autoAlpha: 0,
+      stagger: 0.08
+    });
+
+    gsap.to('[data-id="homePage"]', {
+      scrollTrigger: {
+        trigger: '[data-id="carousel"]',
+        start: 'center 70%',
+        scrub: true
+      },
+      opacity: 0.1
+    });
+  }, []);
   return (
     <>
       {/* Heading Section */}
@@ -26,31 +58,33 @@ export const HomePage = () => {
                     after:bottom-0 after:left-0 after:right-0  bg-background"
         aria-label="Introduction and overview of my skills and experience"
         id="home"
+        data-id="homePage"
       >
-        <motion.div {...animationAppears(1)} className="hidden md:block">
+        <div className="hidden md:block opacity-100" data-id="avatar">
           <Avatar />
-        </motion.div>
+        </div>
         <div className="flex flex-col gap-4 mx-auto max-w-125">
-          <motion.div {...animationAppears(2)}>
+          <div data-id="chip">
             <span className="inline-flex px-3 py-1.5 bg-bgc-gray rounded-full border-border border text-sm leading-none">
               React Engineer
             </span>
-          </motion.div>
-          <motion.div {...animationAppears(3)}>
-            <h1 className="flex text-4xl leading-tight">
+          </div>
+          <div>
+            <h1 data-id="heading" className=" text-4xl leading-tight ">
               Talk is cheap.
               <br />
               Show me the code.
             </h1>
-          </motion.div>
+          </div>
 
-          <motion.div {...animationAppears(4)}>
-            <p className="inline-flex text-sm leading-relaxed text-foreground/50">
-              I design and code beautifully simple things,
-              <br /> and I love what I do.
-            </p>
-          </motion.div>
-          <motion.div {...animationAppears(5)} className="flex gap-4 pt-10">
+          <p
+            data-id="subheading"
+            className="text-sm leading-relaxed text-foreground/50"
+          >
+            I design and code beautifully simple things,
+            <br /> and I love what I do.
+          </p>
+          <div data-id="buttons" className="flex gap-4 pt-10 justify-center">
             <a
               className="cursor-pointer"
               href="/CV/FE_Vitalii_Hulaievych_CV.pdf"
@@ -61,7 +95,7 @@ export const HomePage = () => {
             <Link to="#projects">
               <Button variant="secondary">My Projects</Button>
             </Link>
-          </motion.div>
+          </div>
         </div>
         {/* Backgrond */}
         <div className="absolute inset-0 grid place-items-center z-[-1] pointer-events-none select-none">
@@ -86,7 +120,9 @@ export const HomePage = () => {
       </section>
 
       {/* Carousel Section*/}
-      <Carousel />
+      <div data-id="carousel">
+        <Carousel />
+      </div>
 
       {/* About Section */}
       <About />

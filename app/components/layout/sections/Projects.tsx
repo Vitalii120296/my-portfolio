@@ -3,6 +3,7 @@ import { Heart } from 'griddy-icons';
 import { PROJECTS } from '@/constants/projects';
 import { useEffect, useState } from 'react';
 import { useProjects } from '@/hooks/useProjects';
+import { useAnimations } from '@/hooks/useAnimations';
 
 interface ILikedProjects {
   id: string;
@@ -11,6 +12,7 @@ interface ILikedProjects {
 export const Projects = () => {
   const { data, addLike, removeLike } = useProjects();
   const [likedProject, setLikedProject] = useState<ILikedProjects[]>([]);
+  const { fadeInTitle } = useAnimations();
 
   const isLiked = (id: string) => likedProject.some((p) => p.id === id);
 
@@ -18,6 +20,8 @@ export const Projects = () => {
     const storage = localStorage.getItem('projects');
 
     setLikedProject(storage ? JSON.parse(storage) : []);
+
+    fadeInTitle('headingProjects');
   }, []);
 
   const tougleLike = async (id: string) => {
@@ -78,7 +82,10 @@ export const Projects = () => {
         </svg>
       </div>
 
-      <h1 className="mb-4 text-3xl font-bold tracking-wide text-center title-underline md:text-5xl">
+      <h1
+        data-id="headingProjects"
+        className="mb-4 text-3xl font-bold tracking-wide text-center title-underline md:text-5xl"
+      >
         PROJECTS
       </h1>
       <div className="">
