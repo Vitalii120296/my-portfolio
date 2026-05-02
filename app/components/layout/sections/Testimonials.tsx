@@ -1,13 +1,21 @@
-import React from 'react';
+import { useAnimations } from '@/hooks/useAnimations';
+import React, { useEffect } from 'react';
 
 export const Testimonials = () => {
+  const { fadeInTitle } = useAnimations();
+  useEffect(() => {
+    fadeInTitle('headingTestimonials');
+  }, []);
   return (
     <section
       className="flex flex-col w-full px-5 mx-auto lg:px-10 py-15 md:py-32 max-w-desktop"
       id="testimonials"
       aria-label="Testimonials from colleagues"
     >
-      <h1 className="mb-4 text-3xl font-bold tracking-wide text-center title-underline md:text-5xl">
+      <h1
+        data-id="headingTestimonials"
+        className="mb-4 text-3xl font-bold tracking-wide text-center title-underline md:text-5xl"
+      >
         TESTIMONIALS
       </h1>
       <div>

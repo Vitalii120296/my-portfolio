@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 import { useInView } from 'react-intersection-observer';
 
 interface AnimatedNumberProps {
@@ -11,16 +11,37 @@ export const AnimatedNumber: React.FC<AnimatedNumberProps> = ({
   value,
   duration = 1
 }) => {
-  const motionValue = useMotionValue(0);
-  const rounded = useTransform(motionValue, (v) => Math.floor(v));
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
+  const { ref, inView } = useInView({
+    triggerOnce: false,
+    threshold: 0.3
+  });
+
+  const numberRef = useRef<HTMLSpanElement>(null);
+  const counterRef = useRef({ value: 0 });
 
   useEffect(() => {
-    if (!inView) return;
+    if (!inView || !numberRef.current) return;
 
-    const controls = animate(motionValue, value, { duration, ease: 'easeOut' });
-    return () => controls.stop();
+    gsap.killTweensOf(counterRef.current);
+
+    gsap.to(counterRef.current, {
+      value: value,
+      duration: duration,
+      delay: 0.7,
+      ease: 'power2.out',
+      onUpdate: () => {
+        if (numberRef.current) {
+          numberRef.current.textContent = Math.floor(
+            counterRef.current.value
+          ).toString();
+        }
+      }
+    });
   }, [inView, value, duration]);
 
-  return <motion.span ref={ref}>{rounded}</motion.span>;
+  return (
+    <span ref={ref}>
+      <span ref={numberRef}>0</span>
+    </span>
+  );
 };
