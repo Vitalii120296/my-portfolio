@@ -11,10 +11,17 @@ import { Avatar } from '@/components/ui/Avatar';
 import { Testimonials } from '@/components/layout/sections/Testimonials';
 import { motion } from 'framer-motion';
 import { animationAppears } from '@/constants/animations';
+import { useEffect } from 'react';
+import { gsap } from 'gsap';
 
 export const HomePage = () => {
   useScrollSpy(['home', 'about', 'projects', 'testimonials', 'contacts']);
 
+  useEffect(() => {
+    const tl = gsap.timeline();
+
+    tl.from;
+  }, []);
   return (
     <>
       {/* Heading Section */}
@@ -27,15 +34,15 @@ export const HomePage = () => {
         aria-label="Introduction and overview of my skills and experience"
         id="home"
       >
-        <motion.div {...animationAppears(1)} className="hidden md:block">
+        <div className="hidden md:block">
           <Avatar />
-        </motion.div>
+        </div>
         <div className="flex flex-col gap-4 mx-auto max-w-125">
-          <motion.div {...animationAppears(2)}>
+          <div>
             <span className="inline-flex px-3 py-1.5 bg-bgc-gray rounded-full border-border border text-sm leading-none">
               React Engineer
             </span>
-          </motion.div>
+          </div>
           <motion.div {...animationAppears(3)}>
             <h1 className="flex text-4xl leading-tight">
               Talk is cheap.
