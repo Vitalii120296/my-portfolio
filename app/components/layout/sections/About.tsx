@@ -113,7 +113,7 @@ export const About = () => {
                   React Engineering
                 </h4>
                 <p className="mt-2 text-sm">
-                  Building scalable, maintainable web apps with modern framework
+                  Building scalable, maintainable web apps with modern libraries
                   like React.
                 </p>
                 <span className="absolute right-6 top-5 text-accent">
