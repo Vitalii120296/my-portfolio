@@ -57,8 +57,7 @@ export const useAnimations = () => {
           scrollTrigger: {
             trigger: `[data-id="${dataId}"]`,
             start: 'top 90%',
-            toggleActions: 'play none none reverse',
-            markers: true
+            toggleActions: 'play none none reverse'
           }
         })
       };
