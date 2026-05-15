@@ -15,6 +15,7 @@ export interface IProject {
 }
 
 export interface ISocialLinks {
+  name: string;
   href: string;
   component: React.ReactNode;
 }
