@@ -2,6 +2,7 @@ import type { ISocialLinks } from '@/types/types';
 
 export const SOCIAL_LINKS: ISocialLinks[] = [
   {
+    name: 'Facebook',
     href: 'https://www.facebook.com/v.hulaievych',
     component: (
       <svg fill="#000000" viewBox="0 0 128 128">
@@ -14,6 +15,7 @@ export const SOCIAL_LINKS: ISocialLinks[] = [
     )
   },
   {
+    name: 'Linkedin',
     href: 'http://www.linkedin.com/in/vitalii-hulaievych-6a623b349',
     component: (
       <svg fill="#000000" viewBox="0 0 128 128">
@@ -26,6 +28,7 @@ export const SOCIAL_LINKS: ISocialLinks[] = [
     )
   },
   {
+    name: 'Github',
     href: 'https://github.com/Vitalii120296',
     component: (
       <svg fill="#000000" viewBox="0 0 128 128">

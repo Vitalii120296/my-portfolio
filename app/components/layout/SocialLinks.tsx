@@ -15,7 +15,7 @@ export const SocialLinks = () => {
             {link.component}
           </a>
 
-          <Tooltip value="Facebook" />
+          <Tooltip value={link.name} />
         </div>
       ))}
     </>
