@@ -19,7 +19,7 @@ export default function ParticlesComponent() {
     // @ts-ignore
     window.particlesJS('particles-js', {
       particles: {
-        number: { value: 15, density: { enable: true, value_area: 800 } },
+        number: { value: 55, density: { enable: true, value_area: 800 } },
         color: { value: '#20c997' },
         shape: { type: 'circle', stroke: { width: 0.5, color: '#20c997' } },
         opacity: {
