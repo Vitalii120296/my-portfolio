@@ -67,118 +67,121 @@ export const Hire = () => {
   };
 
   return (
-    <section
-      className="relative flex flex-col w-full px-5 mx-auto overflow-hidden lg:px-10 py-15 md:py-32 max-w-desktop"
-      id="contacts"
-      aria-label="Contact me for work opportunities"
-    >
-      <h1
-        data-id="headingHire"
-        className="mb-4 text-3xl font-bold tracking-wide text-center title-underline md:text-5xl"
+    <div className="relative z-0 w-full h-full">
+      <section
+        className="relative z-0 flex flex-col w-full px-5 mx-auto overflow-hidden lg:px-10 py-15 md:py-32 max-w-desktop"
+        id="contacts"
+        aria-label="Contact me for work opportunities"
       >
-        HIRE ME
-      </h1>
-      <div>
-        <p
-          data-id="subheadingHire"
-          className="max-w-lg mx-auto mb-10 text-sm font-light tracking-wide text-center text-foreground/55 max-md:px-5 md:mb-14"
+        <h1
+          data-id="headingHire"
+          className="mb-4 text-3xl font-bold tracking-wide text-center title-underline md:text-5xl"
         >
-          I'm open to full-time, part-time, and freelance opportunities. Feel
-          free to reach out—I'd love to connect and discuss how we can work
-          together. You can contact me through this form or via email:
-          <br />
-          <a
-            href="mailto:v.hulaievych@gmail.com"
-            className="leading-normal text-foreground hover:text-accent"
+          HIRE ME
+        </h1>
+        <div>
+          <p
+            data-id="subheadingHire"
+            className="max-w-lg mx-auto mb-10 text-sm font-light tracking-wide text-center text-foreground/55 max-md:px-5 md:mb-14"
           >
-            v.hulaievych@gmail.com
-          </a>
-        </p>
-      </div>
-      <div>
-        <form
-          data-id="contactForm"
-          onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col max-w-lg gap-4 mx-auto"
-        >
-          <div className="flex flex-col gap-2">
-            <label htmlFor="name" className="text-foreground">
-              {`Name `}
-              <span className="text-xl text-red">*</span>
-            </label>
-            <input
-              className={`px-4 py-2 text-foreground border rounded-md bg-background focus:border-accent outline-0 ${errors.name ? 'border-red' : 'border-border'}`}
-              placeholder="Name"
-              type="text"
-              id="name"
-              {...register('name', {
-                required: 'This field is required',
-                minLength: {
-                  value: 2,
-                  message: 'Name must be at least 2 characters'
-                },
-                maxLength: {
-                  value: 55,
-                  message: 'Name must be max 55 characters'
-                }
-              })}
-            />
-            {errors.name && (
-              <p className="text-xs text-red">{errors.name.message}</p>
+            I'm open to full-time, part-time, and freelance opportunities. Feel
+            free to reach out—I'd love to connect and discuss how we can work
+            together. You can contact me through this form or via email:
+            <br />
+            <a
+              href="mailto:v.hulaievych@gmail.com"
+              className="leading-normal text-foreground hover:text-accent"
+            >
+              v.hulaievych@gmail.com
+            </a>
+          </p>
+        </div>
+        <div>
+          <form
+            data-id="contactForm"
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col max-w-lg gap-4 mx-auto"
+          >
+            <div className="flex flex-col gap-2">
+              <label htmlFor="name" className="text-foreground">
+                {`Name `}
+                <span className="text-xl text-red">*</span>
+              </label>
+              <input
+                className={`px-4 py-2 text-foreground border rounded-md bg-background focus:border-accent outline-0 ${errors.name ? 'border-red' : 'border-border'}`}
+                placeholder="Name"
+                type="text"
+                id="name"
+                {...register('name', {
+                  required: 'This field is required',
+                  minLength: {
+                    value: 2,
+                    message: 'Name must be at least 2 characters'
+                  },
+                  maxLength: {
+                    value: 55,
+                    message: 'Name must be max 55 characters'
+                  }
+                })}
+              />
+              {errors.name && (
+                <p className="text-xs text-red">{errors.name.message}</p>
+              )}
+            </div>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="email" className="text-foreground">
+                {`Email `}
+                <span className="text-xl text-red">*</span>
+              </label>
+              <input
+                className={`px-4 py-2 text-foreground border rounded-md bg-background  focus:border-accent outline-0 ${errors.email ? 'border-red' : 'border-border'}`}
+                id="email"
+                type="email"
+                placeholder="Email"
+                {...register('email', {
+                  required: 'This field is required',
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: 'Please enter a valid email address'
+                  }
+                })}
+              />
+              {errors.email && (
+                <p className="text-xs text-red">{errors.email.message}</p>
+              )}
+            </div>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="message" className="text-foreground">
+                {`Message `}
+                <span className="text-xl text-red">*</span>
+              </label>
+              <textarea
+                className={`px-4 py-2 text-foreground border rounded-md resize-none h-30 bg-background focus:border-accent outline-0 ${errors.message ? 'border-red' : 'border-border'}`}
+                placeholder="Type your messahe here."
+                id="message"
+                {...register('message', {
+                  required: 'This field is required',
+                  minLength: {
+                    value: 10,
+                    message: 'Message must be at least 10 characters'
+                  }
+                })}
+              ></textarea>
+              {errors.message && (
+                <p className="text-xs text-red">{errors.message.message}</p>
+              )}
+            </div>
+            <Button variant="wide" disabled={!isValid || isSending}>
+              {isSending ? <Spinner className="w-full" /> : 'Send message'}
+            </Button>
+            {isError && <p className="text-xs text-red">{`${isError}`}</p>}
+            {isSended && (
+              <p className="text-xs text-green-500">{`Your message has been sent successfully.`}</p>
             )}
-          </div>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="email" className="text-foreground">
-              {`Email `}
-              <span className="text-xl text-red">*</span>
-            </label>
-            <input
-              className={`px-4 py-2 text-foreground border rounded-md bg-background  focus:border-accent outline-0 ${errors.email ? 'border-red' : 'border-border'}`}
-              id="email"
-              type="email"
-              placeholder="Email"
-              {...register('email', {
-                required: 'This field is required',
-                pattern: {
-                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                  message: 'Please enter a valid email address'
-                }
-              })}
-            />
-            {errors.email && (
-              <p className="text-xs text-red">{errors.email.message}</p>
-            )}
-          </div>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="message" className="text-foreground">
-              {`Message `}
-              <span className="text-xl text-red">*</span>
-            </label>
-            <textarea
-              className={`px-4 py-2 text-foreground border rounded-md resize-none h-30 bg-background focus:border-accent outline-0 ${errors.message ? 'border-red' : 'border-border'}`}
-              placeholder="Type your messahe here."
-              id="message"
-              {...register('message', {
-                required: 'This field is required',
-                minLength: {
-                  value: 10,
-                  message: 'Message must be at least 10 characters'
-                }
-              })}
-            ></textarea>
-            {errors.message && (
-              <p className="text-xs text-red">{errors.message.message}</p>
-            )}
-          </div>
-          <Button variant="wide" disabled={!isValid || isSending}>
-            {isSending ? <Spinner className="w-full" /> : 'Send message'}
-          </Button>
-          {isError && <p className="text-xs text-red">{`${isError}`}</p>}
-          {isSended && (
-            <p className="text-xs text-green-500">{`Your message has been sent successfully.`}</p>
-          )}
-        </form>
-      </div>
-    </section>
+          </form>
+        </div>
+      </section>
+      <div className="absolute inset-0 -z-10 h-full w-full items-center [background:radial-gradient(125%_125%_at_50%_10%,var(--bgc-dark-2)_50%,var(--primary)_100%)]"></div>
+    </div>
   );
 };
