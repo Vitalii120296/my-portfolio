@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useProjects } from '@/hooks/useProjects';
 import { useAnimations } from '@/hooks/useAnimations';
 import { Meteors } from '@/components/ui/meteors';
+import { CardBody, CardContainer, CardItem } from '@/components/ui/3d-card';
 
 interface ILikedProjects {
   id: string;
@@ -100,84 +101,94 @@ export const Projects = () => {
         {/* Cards */}
         <div className="flex flex-col gap-10 pt-10 sm:py-10 max-sm:w-full sm:pr-10 sm:flex-row flex-nowrap animate-carousel-vertical animate-carousel-sm">
           {PROJECTS.map((proj, index) => (
-            <div
-              key={proj.id}
-              className="flex flex-col flex-none w-full p-1 overflow-hidden border h-100 sm:w-110 lg:w-130 bg-card rounded-2xl border-border"
-            >
-              <div className="min-h-[50%] sm:min-h-[70%] rounded-2xl overflow-hidden ">
-                <img
-                  src={proj.img}
-                  alt={proj.name}
-                  className="object-cover w-full transition-transform duration-300 rounded-2xl hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
-              <div className="flex flex-col h-full gap-1 px-4 py-2">
-                <div className="flex justify-between ">
-                  <a
-                    target="_blank"
-                    href={proj.link}
-                    className="font-semibold tracking-wider underline"
-                  >
-                    {proj.name}
-                  </a>
-                  <button
-                    className="flex items-center gap-1 text-red"
-                    onClick={() => {
-                      tougleLike(proj.id);
-                    }}
-                  >
-                    <Heart size={22} filled={isLiked(proj.id)} />
-                    <span>
-                      {data?.find((p) => p.id === proj.id)?.likes ?? 0}
-                    </span>
-                  </button>
-                </div>
-                <SmallText value={proj.description} />
-              </div>
-            </div>
+            <CardContainer key={proj.id} className="inter-var">
+              <CardBody className="relative flex flex-col flex-none w-full p-1 border group/card h-100 sm:w-110 lg:w-130 bg-card rounded-2xl border-border">
+                <CardItem
+                  translateZ={40}
+                  className="min-h-[50%] sm:min-h-[70%] rounded-2xl overflow-hidden "
+                >
+                  <img
+                    src={proj.img}
+                    alt={proj.name}
+                    className="object-cover w-full duration-300 border-2 border-transparent transition-border rounded-2xl hover:border-border"
+                    loading="lazy"
+                  />
+                </CardItem>
+                <CardItem
+                  translateZ={20}
+                  className="flex flex-col h-full gap-1 px-4 py-2"
+                >
+                  <div className="flex justify-between ">
+                    <a
+                      target="_blank"
+                      href={proj.link}
+                      className="font-semibold tracking-wider underline"
+                    >
+                      {proj.name}
+                    </a>
+                    <button
+                      className="flex items-center gap-1 text-red"
+                      onClick={() => {
+                        tougleLike(proj.id);
+                      }}
+                    >
+                      <Heart size={22} filled={isLiked(proj.id)} />
+                      <span>
+                        {data?.find((p) => p.id === proj.id)?.likes ?? 0}
+                      </span>
+                    </button>
+                  </div>
+                  <SmallText value={proj.description} />
+                </CardItem>
+              </CardBody>
+            </CardContainer>
           ))}
         </div>
 
         {/* Additional cards */}
         <div className="flex flex-col gap-10 pt-10 sm:py-10 max-sm:w-full sm:pr-10 sm:flex-row flex-nowrap animate-carousel-vertical animate-carousel-sm">
           {PROJECTS.map((proj, index) => (
-            <div
-              key={proj.id}
-              className="flex flex-col flex-none w-full p-1 overflow-hidden border h-100 sm:w-110 lg:w-130 bg-card rounded-2xl border-border"
-            >
-              <div className="min-h-[50%] sm:min-h-[70%] rounded-2xl overflow-hidden ">
-                <img
-                  src={proj.img}
-                  alt={proj.name}
-                  className="object-cover w-full transition-transform duration-300 rounded-2xl hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
-              <div className="flex flex-col h-full gap-1 px-4 py-2">
-                <div className="flex justify-between ">
-                  <a
-                    target="_blank"
-                    href={proj.link}
-                    className="font-semibold tracking-wider underline"
-                  >
-                    {proj.name}
-                  </a>
-                  <button
-                    className="flex items-center gap-1 text-red"
-                    onClick={() => {
-                      tougleLike(proj.id);
-                    }}
-                  >
-                    <Heart size={22} filled={isLiked(proj.id)} />
-                    <span>
-                      {data?.find((p) => p.id === proj.id)?.likes ?? 0}
-                    </span>
-                  </button>
-                </div>
-                <SmallText value={proj.description} />
-              </div>
-            </div>
+            <CardContainer key={proj.id} className="inter-var">
+              <CardBody className="relative flex flex-col flex-none w-full p-1 border group/card h-100 sm:w-110 lg:w-130 bg-card rounded-2xl border-border">
+                <CardItem
+                  translateZ={40}
+                  className="min-h-[50%] sm:min-h-[70%] rounded-2xl overflow-hidden "
+                >
+                  <img
+                    src={proj.img}
+                    alt={proj.name}
+                    className="object-cover w-full duration-300 border-2 border-transparent transition-border rounded-2xl hover:border-border"
+                    loading="lazy"
+                  />
+                </CardItem>
+                <CardItem
+                  translateZ={20}
+                  className="flex flex-col h-full gap-1 px-4 py-2"
+                >
+                  <div className="flex justify-between ">
+                    <a
+                      target="_blank"
+                      href={proj.link}
+                      className="font-semibold tracking-wider underline"
+                    >
+                      {proj.name}
+                    </a>
+                    <button
+                      className="flex items-center gap-1 text-red"
+                      onClick={() => {
+                        tougleLike(proj.id);
+                      }}
+                    >
+                      <Heart size={22} filled={isLiked(proj.id)} />
+                      <span>
+                        {data?.find((p) => p.id === proj.id)?.likes ?? 0}
+                      </span>
+                    </button>
+                  </div>
+                  <SmallText value={proj.description} />
+                </CardItem>
+              </CardBody>
+            </CardContainer>
           ))}
         </div>
         <div className="absolute inset-y-0 left-0 hidden w-1/4 pointer-events-none bg-linear-to-r from-black sm:flex"></div>
