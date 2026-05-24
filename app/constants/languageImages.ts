@@ -21,13 +21,16 @@ export const LANGUAGE_IMAGES: IImage[] = [
     name: 'Tailwind Css',
     href: '/assets/icons/languages/tailwind-css.svg'
   },
-  { name: 'Redux', href: '/assets/icons/languages/redux.svg' },
-  { name: 'Postgresql', href: '/assets/icons/languages/postgresql.svg' },
-
+  {
+    name: 'GSAP',
+    href: '/assets/icons/languages/gsap.svg'
+  },
   {
     name: 'Framer Motion',
     href: '/assets/icons/languages/framer.svg'
   },
+  { name: 'Redux', href: '/assets/icons/languages/redux.svg' },
+  { name: 'Postgresql', href: '/assets/icons/languages/postgresql.svg' },
   {
     name: 'Webpack',
     href: '/assets/icons/languages/webpack.svg'
