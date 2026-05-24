@@ -108,7 +108,7 @@ export const About = () => {
           <div className="mb-6 [&>div]:mb-2">
             <SmallText value="Main Skills" />
             <div data-id="mainSkills1" className="relative">
-              <div className="px-6 py-5 bg-background rounded-xl">
+              <div className="px-6 py-5 bg-background rounded-xl shadow-xs shadow-primary">
                 <h4 className="text-xl leading-tight tracking-wide text-accent">
                   React Engineering
                 </h4>
@@ -122,7 +122,7 @@ export const About = () => {
               </div>
             </div>
             <div data-id="mainSkills2" className="relative">
-              <div className="px-6 py-5 bg-background rounded-xl">
+              <div className="px-6 py-5 bg-background rounded-xl shadow-xs shadow-primary">
                 <h4 className="text-xl leading-tight tracking-wide text-accent">
                   UI/UX & Design Systems
                 </h4>
@@ -143,7 +143,7 @@ export const About = () => {
             <div className="relative">
               <div
                 data-id="education1"
-                className="px-6 py-5 bg-background rounded-xl"
+                className="px-6 py-5 bg-background rounded-xl shadow-xs shadow-primary"
               >
                 <h4 className="text-xl leading-tight tracking-wide text-accent">
                   Chervonohrad Mining and Economic College
@@ -160,7 +160,7 @@ export const About = () => {
               </div>
             </div>
             <div data-id="education2" className="relative">
-              <div className="px-6 py-5 bg-background rounded-xl">
+              <div className="px-6 py-5 bg-background rounded-xl shadow-xs shadow-primary">
                 <h4 className="text-xl leading-tight tracking-wide text-accent">
                   Mate academy
                 </h4>
