@@ -4,6 +4,7 @@ import { PROJECTS } from '@/constants/projects';
 import { useEffect, useState } from 'react';
 import { useProjects } from '@/hooks/useProjects';
 import { useAnimations } from '@/hooks/useAnimations';
+import { Meteors } from '@/components/ui/meteors';
 
 interface ILikedProjects {
   id: string;
@@ -46,10 +47,11 @@ export const Projects = () => {
 
   return (
     <section
-      className="relative flex flex-col pt-20 mb-4 bg-black md:pt-28 lg:pt-40 xl:pt-55"
+      className="relative flex flex-col pt-20 mb-4 overflow-hidden bg-black md:pt-28 lg:pt-40 xl:pt-55"
       id="projects"
       aria-label="Showcase of projects I've worked on, highlighting my skills and experience in React engineering and UI/UX design"
     >
+      <Meteors />
       {/* TOP SVG */}
       <div className="absolute inset-x-0 z-10 pointer-events-none select-none -top-1 ">
         <svg

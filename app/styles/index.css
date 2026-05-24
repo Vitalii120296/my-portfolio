@@ -6,6 +6,8 @@
 @import 'tw-animate-css';
 @import '@fontsource-variable/geist';
 /*             ---break---          */
+@custom-variant dark (&:is(.dark *));
+/*             ---break---          */
 
 :root {
   font-size: 16px;
@@ -21,7 +23,7 @@
   --popover: rgb(45, 46, 50); /*  + */
   --popover-foreground: rgb(255, 255, 255); /*  + */
 
-  --primary: oklch(76.741% 0.02667 17.569);
+  --primary: rgba(139, 92, 246, 0.4);
   --primary-foreground: oklch(0.985 0 0);
 
   --secondary: oklch(0.97 0 0);
@@ -30,14 +32,14 @@
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
 
-  --accent: rgb(32, 201, 151); /*  + */
+  --accent: #20c997; /*  + */
   --accent-foreground: rgb(45, 46, 50); /*  + */
 
   --red: rgb(255, 0, 0); /*  + */
   --destructive: oklch(0.577 0.245 27.325);
 
   --border: rgb(74, 78, 84);
-  --input: oklch(0.922 0 0);
+  --input: rgb(229, 229, 229);
   --ring: oklch(0.708 0 0);
 
   --chart-1: oklch(0.809 0.105 251.813);
@@ -165,5 +167,24 @@ button {
   }
   html {
     @apply font-raleway scroll-smooth;
+  }
+}
+
+/*             ---break---          */
+
+@theme inline {
+  --animate-meteor: meteor 5s linear infinite;
+  @keyframes meteor {
+    0% {
+      transform: rotate(var(--angle)) translateX(0);
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(var(--angle)) translateX(-500px);
+      opacity: 0;
+    }
   }
 }
