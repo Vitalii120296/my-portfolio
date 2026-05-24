@@ -13,6 +13,7 @@ import { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger, SplitText } from 'gsap/all';
 import { useAnimations } from '@/hooks/useAnimations';
+import ParticlesComponent from '@/components/ui/particles-bg';
 
 export const HomePage = () => {
   useScrollSpy(['home', 'about', 'projects', 'testimonials', 'contacts']);
@@ -55,12 +56,27 @@ export const HomePage = () => {
                     text-center justify-center items-center z-10 w-full mx-auto px-4
                     after:absolute after:content-[''] after:w-full after:h-0.5 
                     after:bg-linear-to-r after:from-white/80 after:to-transparent 
-                    after:bottom-0 after:left-0 after:right-0  bg-background"
+                    after:bottom-0 after:left-0 after:right-0 bg-background"
         aria-label="Introduction and overview of my skills and experience"
         id="home"
         data-id="homePage"
       >
-        <div className="hidden md:block opacity-100" data-id="avatar">
+        <div
+          className="absolute inset-0 pointer-events-none select-none -z-20"
+          style={{
+            background:
+              'radial-gradient(circle 400px at 10% 10%, var(--primary), transparent)'
+          }}
+        />
+        <div
+          className="absolute inset-0 pointer-events-none select-none -z-20"
+          style={{
+            background:
+              'radial-gradient(circle 400px at 90% 90%, var(--primary), transparent)'
+          }}
+        />
+        <ParticlesComponent />
+        <div className="hidden opacity-100 md:block" data-id="avatar">
           <Avatar />
         </div>
         <div className="flex flex-col gap-4 mx-auto max-w-125">
@@ -70,7 +86,7 @@ export const HomePage = () => {
             </span>
           </div>
           <div>
-            <h1 data-id="heading" className=" text-4xl leading-tight ">
+            <h1 data-id="heading" className="text-4xl leading-tight ">
               Talk is cheap.
               <br />
               Show me the code.
@@ -84,7 +100,7 @@ export const HomePage = () => {
             I design and code beautifully simple things,
             <br /> and I love what I do.
           </p>
-          <div data-id="buttons" className="flex gap-4 pt-10 justify-center">
+          <div data-id="buttons" className="flex justify-center gap-4 pt-10">
             <a
               className="cursor-pointer"
               href="/CV/FE_Vitalii_Hulaievych_CV.pdf"
@@ -101,12 +117,22 @@ export const HomePage = () => {
         <div className="absolute inset-0 grid place-items-center z-[-1] pointer-events-none select-none">
           <svg
             viewBox="0 0 512 512"
-            className="font-raleway text-[400px] font-black italic opacity-15 size-full"
+            className="font-raleway text-[400px] font-black italic opacity-100 size-full"
           >
-            <text x="-3.7%" y="350" stroke="#f8f8f8" fill="#1f1f1f">
+            <text
+              x="-3.7%"
+              y="350"
+              stroke="rgb(74, 78, 84)"
+              fill="rgb(45, 46, 50)"
+            >
               V
             </text>
-            <text x="40%" y="460" stroke="#f8f8f8" fill="#1f1f1f">
+            <text
+              x="40%"
+              y="460"
+              stroke="rgb(74, 78, 84)"
+              fill="rgb(45, 46, 50)"
+            >
               H
             </text>
           </svg>
