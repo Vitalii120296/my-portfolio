@@ -67,10 +67,9 @@ export const Hire = () => {
   };
 
   return (
-    <div className="relative z-0 w-full h-full">
+    <div className="relative z-0 w-full h-full" id="contacts">
       <section
         className="relative z-0 flex flex-col w-full px-5 mx-auto overflow-hidden lg:px-10 py-15 md:py-32 max-w-desktop"
-        id="contacts"
         aria-label="Contact me for work opportunities"
       >
         <h1

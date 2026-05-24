@@ -11,7 +11,7 @@ import { Avatar } from '@/components/ui/Avatar';
 import { Testimonials } from '@/components/layout/sections/Testimonials';
 import { useEffect } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger, SplitText } from 'gsap/all';
+import { SplitText } from 'gsap/all';
 import { useAnimations } from '@/hooks/useAnimations';
 import ParticlesComponent from '@/components/ui/particles-bg';
 
