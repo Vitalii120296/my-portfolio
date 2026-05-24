@@ -3,11 +3,11 @@ import { Button } from '@/components/ui/Button';
 export const MyCv = () => {
   return (
     <section
-      className="relative grid w-full px-5 mx-auto overflow-hidden bg-black place-items-center lg:px-10 py-15 md:py-32"
+      className="relative z-0 grid w-full px-5 mx-auto overflow-hidden bg-black place-items-center lg:px-10 py-15 md:py-32"
       aria-label="Download my CV"
     >
       <svg
-        className="absolute z-10 w-full h-24 rotate-180 -top-2 text-bgc-dark-2 min-w-3xl md:h-32 lg:h-48 xl:h-80"
+        className="absolute z-30 w-full h-24 rotate-180 -top-2 text-bgc-dark-2 min-w-3xl md:h-32 lg:h-48 xl:h-80"
         viewBox="0 0 1440 320"
         preserveAspectRatio="none"
         fill="currentColor"
@@ -37,7 +37,7 @@ export const MyCv = () => {
         </div>
       </div>
       <svg
-        className="absolute bottom-0 z-10 w-full h-24 text-bgc-dark-2 min-w-3xl md:h-32 lg:h-48 xl:h-80"
+        className="absolute bottom-0 z-30 w-full h-24 text-bgc-dark-2 min-w-3xl md:h-32 lg:h-48 xl:h-80"
         viewBox="0 0 1440 320"
         preserveAspectRatio="none"
         fill="currentColor"
