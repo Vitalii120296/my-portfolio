@@ -1,5 +1,5 @@
 import { useAnimations } from '@/hooks/useAnimations';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 export const Testimonials = () => {
   const { fadeInTitle } = useAnimations();

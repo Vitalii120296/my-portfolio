@@ -1,6 +1,6 @@
 import { Menu, Heart } from 'griddy-icons';
 import { NavLink, useLocation } from 'react-router';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useOptimistic, useRef, useState } from 'react';
 import { NAVLINKS } from '@/constants/navLinks';
 import { BurgerMenu } from '../ui/BurgerMenu';
 import { useBurgerMenu } from '@/store/store';
@@ -14,6 +14,7 @@ export const Header = () => {
   const burgerMenu = useBurgerMenu();
   const [isLiked, setIsLiked] = useState(false);
   const { likes, addLike, removeLike } = useLikes();
+  const [optimisticLikes, setOptimisticLikes] = useOptimistic<number>(likes);
 
   useEffect(() => {
     const id = hash.replace('#', '') || 'home';
@@ -75,7 +76,8 @@ export const Header = () => {
     setIsLiked(liked ? JSON.parse(liked) : false);
   }, [likes]);
 
-  const tougleLikes = () => {
+  const toggleLikes = () => {
+    setOptimisticLikes((prev) => (isLiked ? prev - 1 : prev + 1));
     if (isLiked) {
       removeLike.mutate();
     }
@@ -119,11 +121,11 @@ export const Header = () => {
         <button
           className="p-1 gap-1 flex  items-center  px-2 py-1 rounded-2xl bg-bgc-dark-2 text-red"
           aria-label="Like this portfolio"
-          onClick={() => tougleLikes()}
+          onClick={() => toggleLikes()}
         >
           <Heart size={22} filled={isLiked} />
           <span>
-            <AnimatedNumber value={likes} duration={0.5} />
+            <AnimatedNumber value={optimisticLikes} duration={0.3} />
           </span>
         </button>
 

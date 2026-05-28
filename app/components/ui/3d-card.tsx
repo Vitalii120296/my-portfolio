@@ -44,7 +44,7 @@ export const CardContainer = ({
   const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
     setIsMouseEntered(false);
-    containerRef.current.style.boxShadow = '0px 10px 20px var(--primary)';
+    containerRef.current.style.boxShadow = '0px 20px 30px var(--primary)';
     containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
     containerRef.current.style.boxShadow = 'none';
   };
@@ -87,12 +87,7 @@ export const CardBody = ({
   className?: string;
 }) => {
   return (
-    <div
-      className={cn(
-        'h-96 w-96 [transform-style:preserve-3d]  [&>*]:[transform-style:preserve-3d]',
-        className
-      )}
-    >
+    <div className={cn('h-96 w-96 transform-3d  *:transform-3d', className)}>
       {children}
     </div>
   );
