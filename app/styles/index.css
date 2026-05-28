@@ -130,6 +130,44 @@
   --max-width-wide: 90rem; /* 1440px */
 }
 
+@layer components {
+  .bg-gradient-adaptive-top {
+    background: radial-gradient(
+      circle 400px at 10% 10%,
+      var(--primary),
+      transparent
+    );
+  }
+
+  @media (max-width: 1024px) {
+    .bg-gradient-adaptive-top {
+      background: radial-gradient(
+        circle 300px at 10% 10%,
+        var(--primary),
+        transparent
+      );
+    }
+  }
+
+  .bg-gradient-adaptive-bottom {
+    background: radial-gradient(
+      circle 400px at 90% 90%,
+      var(--primary),
+      transparent
+    );
+  }
+
+  @media (max-width: 1024px) {
+    .bg-gradient-adaptive-bottom {
+      background: radial-gradient(
+        circle 300px at 90% 90%,
+        var(--primary),
+        transparent
+      );
+    }
+  }
+}
+
 @layer utilities {
   .title-underline {
     display: inline-flex;
