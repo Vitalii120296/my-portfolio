@@ -61,20 +61,8 @@ export const HomePage = () => {
         id="home"
         data-id="homePage"
       >
-        <div
-          className="absolute inset-0 pointer-events-none select-none -z-20"
-          style={{
-            background:
-              'radial-gradient(circle 400px at 10% 10%, var(--primary), transparent)'
-          }}
-        />
-        <div
-          className="absolute inset-0 pointer-events-none select-none -z-20"
-          style={{
-            background:
-              'radial-gradient(circle 400px at 90% 90%, var(--primary), transparent)'
-          }}
-        />
+        <div className="absolute inset-0 pointer-events-none select-none -z-20 bg-gradient-adaptive-top" />
+        <div className="absolute inset-0 pointer-events-none select-none -z-20 bg-gradient-adaptive-bottom " />
         <ParticlesComponent />
         <div className="hidden opacity-100 md:block" data-id="avatar">
           <Avatar />
