@@ -185,15 +185,15 @@ export const About = () => {
                 <div
                   data-id={`language-${i}`}
                   key={i}
-                  className="flex flex-col px-3 shrink-0 w-fulw drop-shadow-lg not-hover:grayscale"
+                  className="flex flex-col px-3 shrink-0 w-full"
                 >
                   <img
                     src={href}
                     alt={name}
-                    className="object-contain h-12 transition-all duration-300 linear opacity-60 hover:opacity-100"
+                    className="object-contain h-12 "
                     loading="lazy"
                   />
-                  <span className="mt-3 text-xs text-center text-accent">
+                  <span className="mt-3 text-xs text-center text-foreground">
                     {name}
                   </span>
                 </div>
@@ -207,7 +207,7 @@ export const About = () => {
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 font-geist">
               <div className="flex flex-col w-full gap-2 text-5xl font-bold text-center md:text-3xl lg:text-5xl">
                 <p className="text-accent ">
-                  <span className="text-foreground ">
+                  <span className="text-accent">
                     <AnimatedNumber value={totalProjects} />
                   </span>
                   {'+'}
@@ -218,7 +218,7 @@ export const About = () => {
               </div>
               <div className="flex flex-col w-full gap-2 text-5xl font-bold text-center md:text-3xl lg:text-5xl">
                 <p className="text-accent">
-                  <span className="text-foreground">
+                  <span>
                     <AnimatedNumber value={100} />
                   </span>
                   %
@@ -229,7 +229,7 @@ export const About = () => {
               </div>
               <div className="flex flex-col w-full gap-2 text-5xl font-bold text-center md:text-3xl lg:text-5xl">
                 <p className="text-accent">
-                  <span className="text-foreground">
+                  <span>
                     <AnimatedNumber value={+experience} duration={0.3} />
                   </span>
                   {'+'}
@@ -240,7 +240,7 @@ export const About = () => {
               </div>
               <div className="flex flex-col w-full gap-2 text-5xl font-bold text-center md:text-3xl lg:text-5xl">
                 <p className="text-accent">
-                  <span className="text-foreground">
+                  <span>
                     <AnimatedNumber value={visitors} />
                   </span>
                 </p>

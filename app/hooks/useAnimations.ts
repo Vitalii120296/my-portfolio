@@ -71,7 +71,7 @@ export const useAnimations = () => {
           scale: 0.9
         },
         to: {
-          opacity: 1,
+          opacity: 0.7,
           transform: 'rotateY(0deg)',
 
           y: 0,

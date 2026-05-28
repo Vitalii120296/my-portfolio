@@ -8,7 +8,7 @@ type Props = {
 export const SmallText: React.FC<Props> = ({ value, className = '' }) => {
   return (
     <span
-      className={`block mb-3 text-xs tracking-wide uppercase text-neutral-400/55 ${className}`}
+      className={`block mb-3 text-xs tracking-wide uppercase text-white/80 ${className}`}
     >
       {value}
     </span>
