@@ -29,7 +29,7 @@ export const MyCv = () => {
         <div>
           <a
             className="cursor-pointer"
-            href="/CV/FE_Vitalii_Hulaievych_CV.pdf"
+            href="/CV/Vitalii_Hulaievych_CV_FE.pdf"
             download
           >
             <Button variant="primary">Download CV</Button>

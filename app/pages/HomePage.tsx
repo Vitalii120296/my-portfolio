@@ -91,7 +91,7 @@ export const HomePage = () => {
           <div data-id="buttons" className="flex justify-center gap-4 pt-10">
             <a
               className="cursor-pointer"
-              href="/CV/FE_Vitalii_Hulaievych_CV.pdf"
+              href="/CV/Vitalii_Hulaievych_CV_FE.pdf"
               download
             >
               <Button variant="primary">Download CV</Button>

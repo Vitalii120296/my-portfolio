@@ -32,21 +32,12 @@ export const LANGUAGE_IMAGES: IImage[] = [
   { name: 'Redux', href: '/assets/icons/languages/redux.svg' },
   { name: 'Postgresql', href: '/assets/icons/languages/postgresql.svg' },
   {
-    name: 'Webpack',
-    href: '/assets/icons/languages/webpack.svg'
-  },
-  {
     name: 'Git',
     href: '/assets/icons/languages/git.svg'
   },
   {
     name: 'Github',
     href: '/assets/icons/languages/github.svg'
-  },
-
-  {
-    name: 'Jest',
-    href: '/assets/icons/languages/jest-snapshot.svg'
   },
   {
     name: 'Postman',
