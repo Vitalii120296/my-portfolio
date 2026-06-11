@@ -5,6 +5,8 @@ import Nothing from './../../public/assets/projects/nothing.webp';
 import Game from './../../public/assets/projects/2048.webp';
 import Dia from './../../public/assets/projects/dia.webp';
 import FlowCRM from './../../public/assets/projects/flow_crm.webp';
+import SolarPanels from './../../public/assets/projects/solar_panels.webp';
+import TheRoofCleaningCo from './../../public/assets/projects/the_roof_cleaning_co.webp';
 
 export const PROJECTS = [
   {
@@ -22,6 +24,22 @@ export const PROJECTS = [
     description:
       'A website for a teeth whitening and dental cleaning clinic, developed as a paid client project. The goal was to create a trustworthy and modern online presence tailored to the healthcare and beauty industry.',
     link: 'https://snowysmiles.org/'
+  },
+  {
+    id: 'solar_panels',
+    name: 'Solar Panels',
+    img: SolarPanels,
+    description:
+      'A modern, conversion-focused marketing website built on Next.js 16 (App Router) and React 19, designed for utility-scale solar, wind, and infrastructure construction companies.',
+    link: 'https://solar-panels-seven.vercel.app/'
+  },
+  {
+    id: 'the-roof-cleaning',
+    name: 'The Roof Cleaning Co.',
+    img: TheRoofCleaningCo,
+    description:
+      'A marketing landing page for a roof restoration and cleaning company (Glasgow & Central Scotland). Built with Next.js, focused on premium design, smooth animations, and SEO optimization.',
+    link: 'https://the-roof-cleaning.vercel.app/'
   },
   {
     id: 'elegant_beauti_studio',
