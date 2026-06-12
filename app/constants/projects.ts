@@ -7,6 +7,7 @@ import Dia from './../../public/assets/projects/dia.webp';
 import FlowCRM from './../../public/assets/projects/flow_crm.webp';
 import SolarPanels from './../../public/assets/projects/solar_panels.webp';
 import TheRoofCleaningCo from './../../public/assets/projects/the_roof_cleaning_co.webp';
+import CleaningCompany from './../../public/assets/projects/cleaning_company.webp';
 
 export const PROJECTS = [
   {
@@ -24,6 +25,14 @@ export const PROJECTS = [
     description:
       'A website for a teeth whitening and dental cleaning clinic, developed as a paid client project. The goal was to create a trustworthy and modern online presence tailored to the healthcare and beauty industry.',
     link: 'https://snowysmiles.org/'
+  },
+  {
+    id: 'cleaning_company',
+    name: 'Cleaning company',
+    img: CleaningCompany,
+    description:
+      'A modern, premium multi-page marketing website for **Hartserve Ltd**, an industrial, commercial and domestic cleaning company serving the Central Belt of Scotland since 1980.',
+    link: 'https://hartserve.vercel.app/'
   },
   {
     id: 'solar_panels',

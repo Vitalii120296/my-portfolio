@@ -97,11 +97,14 @@ export const Projects = () => {
         </p>
       </div>
       {/* Projects Carousel */}
-      <div className="relative flex flex-col items-center px-10 overflow-hidden max-h-125 sm:max-h-155 sm:flex-row pb-14 will-change-transform ">
+      <div className="projects-carousel group relative flex flex-col items-center px-10 overflow-hidden max-h-125 sm:max-h-155 sm:flex-row pb-14 will-change-transform ">
         {/* Cards */}
         <div className="flex flex-col gap-10 pt-10 sm:py-10 max-sm:w-full sm:pr-10 sm:flex-row flex-nowrap animate-carousel-vertical animate-carousel-sm">
           {PROJECTS.map((proj, index) => (
-            <CardContainer key={proj.id} className="inter-var rounded-2xl">
+            <CardContainer
+              key={proj.id}
+              className="project-card inter-var rounded-2xl"
+            >
               <CardBody className="relative flex flex-col flex-none w-full p-1 border group/card h-100 sm:w-110 lg:w-130 bg-card rounded-2xl border-border">
                 <CardItem
                   translateZ={40}
@@ -148,7 +151,10 @@ export const Projects = () => {
         {/* Additional cards */}
         <div className="flex flex-col gap-10 pt-10 sm:py-10 max-sm:w-full sm:pr-10 sm:flex-row flex-nowrap animate-carousel-vertical animate-carousel-sm">
           {PROJECTS.map((proj, _) => (
-            <CardContainer key={proj.id} className="inter-var rounded-2xl">
+            <CardContainer
+              key={proj.id}
+              className="project-card inter-var rounded-2xl"
+            >
               <CardBody className="relative flex flex-col flex-none w-full p-1 border group/card h-100 sm:w-110 lg:w-130 bg-card rounded-2xl border-border">
                 <CardItem
                   translateZ={40}

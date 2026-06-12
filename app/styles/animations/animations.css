@@ -42,6 +42,11 @@
     animation-play-state: paused !important;
   }
 
+  .projects-carousel:has(.project-card:hover) .animate-carousel-vertical,
+  .projects-carousel:has(.project-card:hover) .animate-carousel-sm {
+    animation-play-state: paused !important;
+  }
+
   .animate-wave path {
     animation-name: wave;
     animation-timing-function: ease-in-out;
